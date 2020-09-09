@@ -5,6 +5,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import HomeScreen from "./components/HomeScreen";
 import LoginScreen from "./components/LoginScreen"
 import SignUpScreen from "./components/SignUpScreen"
+import PartiesScreen from "./components/PartiesScreen"
 
 const Tab = createMaterialTopTabNavigator()
 const Stack = createStackNavigator();
@@ -31,7 +32,8 @@ function App() {
           headerTitleAlign: "center"
         }}>
         <Stack.Screen name="Home" component={HomeScreen} options={{ title: "Skit Jou Biscuit"}}/>
-        <Stack.Screen name="Login" component={RegisterTabs} options={{ title: "Login Biscuit"}}/>
+        <Stack.Screen name="Login" component={RegisterTabs} options={{ title: "Register"}}/>
+        <Stack.Screen name="Parties" component={PartiesScreen} options={{ title: "Disco Disco"}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
