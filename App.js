@@ -1,21 +1,42 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import HomeScreen from "./components/HomeScreen";
+import LoginScreen from "./components/LoginScreen"
+import SignUpScreen from "./components/SignUpScreen"
+import PartiesScreen from "./components/PartiesScreen"
 
-export default function App() {
+const Tab = createMaterialTopTabNavigator()
+const Stack = createStackNavigator();
+
+function RegisterTabs(){
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Tab.Navigator>
+      <Tab.Screen name="Login" component={LoginScreen} />
+      <Tab.Screen name="Sign-up" component={SignUpScreen} />
+    </Tab.Navigator>
+  )
+}
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: "orange"
+          },
+          headerTintColor: "#fff",
+          headerTitleAlign: "center"
+        }}>
+        <Stack.Screen name="Home" component={HomeScreen} options={{ title: "Skit Jou Biscuit"}}/>
+        <Stack.Screen name="Login" component={RegisterTabs} options={{ title: "Register"}}/>
+        <Stack.Screen name="Parties" component={PartiesScreen} options={{ title: "Disco Disco"}}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
