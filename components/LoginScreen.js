@@ -1,5 +1,5 @@
 import React from "react"
-import { Text, View, ImageBackground } from "react-native"
+import { View, ImageBackground } from "react-native"
 
 import { styles } from "../StyledComponents/loginScreen"
 import { Form } from "../helpers/Form"

@@ -7,6 +7,18 @@ export const Form = ({fields}) => {
   const displayForm =  fieldKeys.map((key) => {
       const field = fields[key]
 
+      if(!field.inputProps){
+          return (
+            <View 
+                key={key}
+                style={{
+                    justifyContent: "center",
+                }}>
+                <Text>{field.label}:</Text>
+              <TextInput />
+            </View>
+          )
+      } else {
       return (
           <View 
             key={key}
@@ -17,7 +29,8 @@ export const Form = ({fields}) => {
               <TextInput {...field.inputProps}/>
           </View>
       )
-  })
+        }
+    })
 
   return (
       <View>

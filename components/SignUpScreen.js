@@ -1,11 +1,12 @@
 import React from "react"
-import { Text, View, ImageBackground } from "react-native"
+import { View, ImageBackground } from "react-native"
 
 import { styles } from "../StyledComponents/loginScreen"
+import { Form } from "../helpers/Form"
 
 const image = { uri: "https://www.psybient.org/love/wp-content/uploads/Boom-2018.jpg" }
 
-export default function LoginScreen(){
+export default function SignUpScreen(){
     const custom = styles
     return (
         <View 
@@ -14,11 +15,30 @@ export default function LoginScreen(){
                 source={image}
                 style={custom.image}
                 >
-                <View style={custom.textContainer}>
-                <Text
-                    style={custom.text}>
-                    Sign-up Form here!
-                </Text>
+                <View style={{
+                    height: 1,
+                }}>
+                    <Form 
+                        fields={{
+                            fullName: {
+                                label: "Full-Name",
+                            },
+                            favoriteArtist: {
+                                label: "Favorite Artist",
+                            },
+                            email: {
+                                label: "Email",
+                                inputProps: {
+                                    keyboardType: "email-address",
+                                },
+                            },
+                            password: {
+                                label: "Password",
+                                inputProps: {
+                                    secureTextEntry: true,
+                                }
+                            }
+                        }} />
                 </View>
             </ImageBackground>
         </View>
