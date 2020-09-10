@@ -2,6 +2,8 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { Provider } from "react-redux"
+import rootReducer from "./store/rootReducer"
 import HomeScreen from "./components/HomeScreen";
 import LoginScreen from "./components/LoginScreen"
 import SignUpScreen from "./components/SignUpScreen"
