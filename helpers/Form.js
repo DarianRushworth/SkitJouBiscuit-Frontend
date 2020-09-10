@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, TextInput, View, Button } from 'react-native';
+import { CheckBox } from "react-native-elements"
 
 export const Form = ({fields}) => {
     const fieldKeys = Object.keys(fields)
@@ -18,6 +19,18 @@ export const Form = ({fields}) => {
               <TextInput />
             </View>
           )
+      } else if(field.inputProps.checkbox){
+        return (
+          <View 
+                key={key}
+                style={{
+                    justifyContent: "center",
+                }}>
+              <CheckBox
+                title={field.label}
+              />
+            </View>
+        )
       } else {
       return (
           <View 
