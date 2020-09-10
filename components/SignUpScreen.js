@@ -32,6 +32,12 @@ export default function SignUpScreen(){
                                     keyboardType: "email-address",
                                 },
                             },
+                            isEventOwner: {
+                                label: "Event Owner",
+                                inputProps: {
+                                    checkbox: true,
+                                },
+                            },
                             password: {
                                 label: "Password",
                                 inputProps: {
