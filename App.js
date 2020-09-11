@@ -2,7 +2,8 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import { Provider } from "react-redux"
+import { Provider as StoreProvider } from "react-redux"
+import { Provider as PaperProvider } from "react-native-paper"
 import rootReducer from "./store/rootReducer"
 import HomeScreen from "./components/HomeScreen";
 import LoginScreen from "./components/LoginScreen"
@@ -24,7 +25,8 @@ function RegisterTabs(){
 
 function App() {
   return (
-    <Provider store={rootReducer} >
+    <StoreProvider store={rootReducer} >
+      <PaperProvider>
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="Home"
@@ -40,7 +42,8 @@ function App() {
         <Stack.Screen name="Parties" component={PartiesScreen} options={{ title: "Disco Disco"}}/>
       </Stack.Navigator>
     </NavigationContainer>
-    </Provider>
+    </PaperProvider>
+    </StoreProvider>
   );
 }
 
