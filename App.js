@@ -9,6 +9,7 @@ import LoginScreen from "./components/LoginScreen"
 import SignUpScreen from "./components/SignUpScreen"
 import PartiesScreen from "./components/PartiesScreen"
 
+
 const Tab = createMaterialTopTabNavigator()
 const Stack = createStackNavigator();
 
@@ -23,6 +24,7 @@ function RegisterTabs(){
 
 function App() {
   return (
+    <Provider store={rootReducer} >
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="Home"
@@ -38,6 +40,7 @@ function App() {
         <Stack.Screen name="Parties" component={PartiesScreen} options={{ title: "Disco Disco"}}/>
       </Stack.Navigator>
     </NavigationContainer>
+    </Provider>
   );
 }
 
