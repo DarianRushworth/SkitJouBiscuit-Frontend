@@ -9,6 +9,8 @@ import HomeScreen from "./components/HomeScreen";
 import LoginScreen from "./components/LoginScreen"
 import SignUpScreen from "./components/SignUpScreen"
 import PartiesScreen from "./components/PartiesScreen"
+import PartyScreen from "./components/PartyScreen"
+import CommentsScreen from "./components/CommentsScreen"
 
 
 const Tab = createMaterialTopTabNavigator()
@@ -19,6 +21,15 @@ function RegisterTabs(){
     <Tab.Navigator>
       <Tab.Screen name="Login" component={LoginScreen} />
       <Tab.Screen name="Sign-up" component={SignUpScreen} />
+    </Tab.Navigator>
+  )
+}
+
+function PartyTabs(){
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Details" component={PartyScreen} />
+      <Tab.Screen name="Comments" component={CommentsScreen} />
     </Tab.Navigator>
   )
 }
@@ -38,8 +49,9 @@ function App() {
           headerTitleAlign: "center"
         }}>
         <Stack.Screen name="Home" component={HomeScreen} options={{ title: "Skit Jou Biscuit"}}/>
-        <Stack.Screen name="Login" component={RegisterTabs} options={{ title: "Register"}}/>
         <Stack.Screen name="Parties" component={PartiesScreen} options={{ title: "Disco Disco"}}/>
+        <Stack.Screen name="Login" component={RegisterTabs} options={{ title: "Register"}}/>
+        <Stack.Screen name="Details" component={PartyTabs} options={{ title: "Stomp Those Feet"}}/>
       </Stack.Navigator>
     </NavigationContainer>
     </PaperProvider>

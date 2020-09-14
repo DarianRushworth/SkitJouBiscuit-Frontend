@@ -2,22 +2,21 @@ import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
     container: {
+        flexDirection: "row",
         flex: 1,
-        flexDirection: "column",
     },
     image: {
-        flex: 1,
-        resizeMode: "cover",
-        justifyContent: "center",
-    },
-    textContainer : {
-        flex: 2,
-        flexDirection: "column"
+        width: 80,
+        height: 80,
+        borderRadius: 20,
+        margin: 5,
     },
     text: {
-        color: "yellow",
-        textAlign: "center",
+        justifyContent: "center",
+        marginLeft: 5,
+    },
+    textTitle: {
         fontSize: 30,
         fontWeight: "bold",
-    },
+    }
 })
