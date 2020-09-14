@@ -14,7 +14,7 @@ export default function PartiesScreen({route, navigation}){
         <View 
         style={custom.container}>
         <TouchableOpacity
-            onPress={moreDetails(item.id)}>
+            onPress={() => moreDetails(item.id)}>
             <Image
                 style={custom.image}
                 source={{uri:`${item.image}`}}
