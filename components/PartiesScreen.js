@@ -46,8 +46,8 @@ export default function PartiesScreen({route, navigation}){
         <FlatList
             data={parties}
             renderItem={renderParty}
-            keyExtractor={(item) => item.id.toString()}
-            onEndReachedThreshold={0}
+            keyExtractor={(item) => (item.id).toString()}
+            onEndReachedThreshold={0.5}
             onEndReached={() => moreParties()}
         />
     )
