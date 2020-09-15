@@ -13,7 +13,7 @@ export default function HomeScreen({route, navigation}){
     const [fetched, setFetched] = useState(true)
     const dispatch = useDispatch()
     const parties = useSelector(selectParties)
-    console.log("parties fetched", parties)
+    // console.log("parties fetched", parties)
     const custom = styles
 
     useEffect(() => {
