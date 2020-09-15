@@ -18,7 +18,7 @@ export default function HomeScreen({route, navigation}){
 
     useEffect(() => {
         if(fetched === true && parties.length === 0){
-            dispatch(partyFetcher())
+            dispatch(partyFetcher(parties.length))
             setFetched(false)
         } else if(fetched === false && parties.length === 2){
             setFetched(true)
@@ -41,7 +41,7 @@ export default function HomeScreen({route, navigation}){
                     <View style={custom.buttonContainer}>
                         <Button 
                             title="Parties"
-                            onPress={() => navigation.navigate("Parties", { data: parties })}/>
+                            onPress={() => navigation.navigate("Parties")}/>
                         <Button 
                             title="Login"
                             onPress={() => navigation.navigate("Login")}/>

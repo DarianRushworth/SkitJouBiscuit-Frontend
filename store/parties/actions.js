@@ -8,11 +8,11 @@ function partySetter(data){
     }
 }
 
-export function partyFetcher(){
+export function partyFetcher(data){
     return async(dispatch, getState) => {
         try{
             
-            const partiesData = await axios.get(`${API_URL}/parties/list?offset=0&limit=5`)
+            const partiesData = await axios.get(`${API_URL}/parties/list?offset=${data}&limit=5`)
             
             dispatch(partySetter(partiesData.data.parties))
 
