@@ -4,16 +4,17 @@ export const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
         flex: 1,
+        height: 200
     },
     image: {
-        width: 80,
-        height: 80,
-        borderRadius: 20,
+        width: 350,
+        height: 100,
+        borderRadius: 10,
         margin: 5,
     },
     text: {
         justifyContent: "center",
-        marginLeft: 5,
+        marginLeft: 10,
     },
     textTitle: {
         fontSize: 30,

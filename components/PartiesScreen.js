@@ -10,11 +10,12 @@ import { styles } from "../StyledComponents/partiesScreen"
 export default function PartiesScreen({route, navigation}){
     const dispatch = useDispatch()
     const parties = useSelector(selectParties)
+    // console.log("party test", parties)
     const custom = styles
     
     const renderParty = ({item}) => (
         <View 
-        style={custom.container}>
+            style={custom.container}>
         <TouchableOpacity
             onPress={() => moreDetails(item.id)}>
             <Image
@@ -45,7 +46,7 @@ export default function PartiesScreen({route, navigation}){
         <FlatList
             data={parties}
             renderItem={renderParty}
-            keyExtractor={(item, index) => item.id.toString()}
+            keyExtractor={(item) => item.id.toString()}
             onEndReachedThreshold={0}
             onEndReached={() => moreParties()}
         />
