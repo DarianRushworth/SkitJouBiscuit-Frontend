@@ -21,7 +21,7 @@ function PartyScreenStack(){
   return (
     <PartyStack.Navigator>
       <PartyStack.Screen name="Parties" component={PartiesScreen} />
-      <PartyStack.Screen name="Details" component={PartyTabs} />
+      <PartyStack.Screen name="PartyDetails" component={PartyTabs} />
     </PartyStack.Navigator>
   )
 }
@@ -57,7 +57,7 @@ function App() {
             if(route.name === "Home"){
               iconName = "ios-home"
             } else if(route.name === "Parties"){
-              iconName = "ios-musical-notes"
+              iconName = "ios-planet"
             } else if(route.name === "Profile"){
               iconName = "ios-log-in"
             }

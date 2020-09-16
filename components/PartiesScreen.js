@@ -38,7 +38,7 @@ export default function PartiesScreen({route, navigation}){
         </View>
     )
 
-    function moreDetails(partyId){navigation.navigate("Details", {id: partyId})}
+    function moreDetails(partyId){navigation.navigate("PartyDetails", {id: partyId})}
 
     function moreParties(){dispatch(partyFetcher(parties.length))}
 
