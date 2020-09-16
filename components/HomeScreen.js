@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Text, View, ImageBackground } from "react-native"
+import { Text, View, Image } from "react-native"
 import { useDispatch, useSelector } from "react-redux"
 
 import { partyFetcher } from "../store/parties/actions"
@@ -7,7 +7,7 @@ import { selectParties } from "../store/parties/selectors"
 
 import { styles } from "../StyledComponents/homeScreen"
 
-const imageUrl = { uri:"https://lunosol.com/wp-content/uploads/2019/12/canopy-day-distance.jpg"}
+const imageUrl = { uri:"https://media.tenor.com/images/f41cc28da57fb5335a54f3954c42e3e1/tenor.gif"}
 
 export default function HomeScreen({route, navigation}){
     const [fetched, setFetched] = useState(true)
@@ -27,17 +27,16 @@ export default function HomeScreen({route, navigation}){
     return(
         <View
             style={custom.container}>
-                <ImageBackground
-                    source={imageUrl}
-                    style={custom.image}
-                >
-                    <View style={custom.textContainer}>
-                        <Text
-                            style={custom.text}>
-                            Welcome to your one stop, party tracker and locator!!
-                        </Text>
-                    </View>
-                </ImageBackground>
+            <View style={custom.textContainer}>
+                <Text
+                    style={custom.text}>
+                    Skit Jou Biscuit
+                </Text>
+            </View>
+            <Image
+                source={imageUrl}
+                style={custom.image}
+                />
         </View>
     )
 }

@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
         flexDirection: "column",
     },
     image: {
-        flex: 1,
+        flex: 3,
         resizeMode: "cover",
         justifyContent: "center",
     },
@@ -15,7 +15,8 @@ export const styles = StyleSheet.create({
         flexDirection: "column"
     },
     text: {
-        color: "yellow",
+        marginTop: 100,
+        color: "tomato",
         textAlign: "center",
         fontSize: 30,
         fontWeight: "bold",
