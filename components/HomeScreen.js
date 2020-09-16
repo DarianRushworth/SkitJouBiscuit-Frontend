@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Text, View, ImageBackground, Button } from "react-native"
+import { Text, View, ImageBackground } from "react-native"
 import { useDispatch, useSelector } from "react-redux"
 
 import { partyFetcher } from "../store/parties/actions"
@@ -36,14 +36,6 @@ export default function HomeScreen({route, navigation}){
                             style={custom.text}>
                             Welcome to your one stop, party tracker and locator!!
                         </Text>
-                    </View>
-                    <View style={custom.buttonContainer}>
-                        <Button 
-                            title="Parties"
-                            onPress={() => navigation.navigate("Parties")}/>
-                        <Button 
-                            title="Login"
-                            onPress={() => navigation.navigate("Login")}/>
                     </View>
                 </ImageBackground>
         </View>
