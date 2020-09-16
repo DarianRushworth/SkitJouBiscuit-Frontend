@@ -18,10 +18,12 @@ export default function PartyScreen(){
             )
         } else if(details.id >= 1){
             return (
-                <View>
+                <View
+                    style={custom.container}>
                 <Text
                     style={custom.title}>
-                    {details.eventName}
+                    {`${details.eventName}
+                    `}
                 </Text>
                 <Text
                     style={custom.textHead}>
@@ -49,42 +51,50 @@ export default function PartyScreen(){
                     style={custom.textHead}>
                     Description:
                 </Text>
-                <Text>
+                <Text
+                    style={custom.text}>
                     {`${details.description}`}
                 </Text>
                 <Text
                     style={custom.textHead}>
                     Line-Up:
                 </Text>
-                <Text>
-                    {`${details.lineUp === null ?"TBA" :details.lineUp}`}
+                <Text
+                    style={custom.text}>
+                    {`${details.lineUp === null ?"TBA" :details.lineUp}
+                    `}
                 </Text>
                 <Text
                     style={custom.textHead}>
                     Rules:
                 </Text>
-                <Text>
+                <Text
+                    style={custom.text}>
                     {`${details.rules}`}
                 </Text>
                 <Text
                     style={custom.textHead}>
                     Accomodation:
                 </Text>
-                <Text>
+                <Text
+                    style={custom.text}>
                     {`${details.accomodation === null ?"TBA" :details.accomodation}`}
                 </Text>
                 <Text
                     style={custom.textHead}>
                     Extra Info:
                 </Text>
-                <Text>
-                    {`${details.extraInfo === null ?"You have got all information." :details.extraInfo}`}
+                <Text
+                    style={custom.text}>
+                    {`${details.extraInfo === null ?"You have got all information." :details.extraInfo}
+                    `}
                 </Text>
                 <Text
                     style={custom.textHead}>
                     Tickets:
                 </Text>
-                <Text>
+                <Text
+                    style={custom.text}>
                     {`${details.ticketLink === null ?"Tickets been pulled" :details.ticketLink}`}
                 </Text>
                 </View>
