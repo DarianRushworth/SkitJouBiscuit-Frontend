@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { selectParties } from "../store/parties/selectors"
 import { partyFetcher } from "../store/parties/actions"
+import { detailFetcher } from "../store/party/actions"
 import { styles } from "../StyledComponents/partiesScreen"
 
 
@@ -38,7 +39,10 @@ export default function PartiesScreen({route, navigation}){
         </View>
     )
 
-    function moreDetails(partyId){navigation.navigate("PartyDetails", {id: partyId})}
+    function moreDetails(partyId){
+        dispatch(detailFetcher(partyId))
+        navigation.navigate("PartyDetails")
+    }
 
     function moreParties(){dispatch(partyFetcher(parties.length))}
 
