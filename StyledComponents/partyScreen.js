@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: "bold",
         color: "tomato",
+        textAlign: "center",
     },
     textHead: {
         fontWeight: "bold",
