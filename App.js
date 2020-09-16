@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { Ionicons } from "@expo/vector-icons"
 import { Provider as StoreProvider } from "react-redux"
 import rootReducer from "./store/rootReducer"
 import HomeScreen from "./components/HomeScreen"
@@ -48,7 +49,25 @@ function App() {
     <StoreProvider store={rootReducer} >
     <NavigationContainer>
       <Tab.Navigator
-        initialRouteName="Home">
+        initialRouteName="Home"
+        screenOptions={({route}) => ({
+          tabBarIcon: ({ color, size }) => {
+            let iconName
+
+            if(route.name === "Home"){
+              iconName = "ios-home"
+            } else if(route.name === "Parties"){
+              iconName = "ios-musical-notes"
+            } else if(route.name === "Profile"){
+              iconName = "ios-log-in"
+            }
+            return <Ionicons name={iconName} size={size} color={color} />
+          }
+        })}
+        tabBarOptions={{
+          activeTintColor: "tomato",
+          inactiveTintColor: "gray",
+        }}>
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Parties" component={PartyScreenStack} />
         <Tab.Screen name="Profile" component={RegisterTabs} />
