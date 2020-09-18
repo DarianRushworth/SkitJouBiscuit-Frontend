@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import { Text, TextInput, View, Button } from 'react-native';
 import { CheckBox } from "react-native-elements"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 
 import { sendUserInfo } from "../store/user/actions"
-import { selectToken } from "../store/user/selectors"
 import { styles } from "../StyledComponents/form"
 
 export const Form = ({fields}) => {
   const dispatch = useDispatch()
-
-  const token = useSelector(selectToken)
   
   const fieldKeys = Object.keys(fields)
 

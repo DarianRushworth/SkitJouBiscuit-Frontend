@@ -1,12 +1,19 @@
 import React from "react"
 import { View, Image } from "react-native"
+import { useSelector } from "react-redux"
 
+import { selectToken } from "../store/user/selectors"
 import { styles } from "../StyledComponents/loginScreen"
 import { Form } from "../helpers/Form"
 
 const image = { uri: "https://thumbs.gfycat.com/HealthyOrderlyHuman-max-1mb.gif" }
 
-export default function LoginScreen(){
+export default function LoginScreen({ navigation }){
+  const token = useSelector(selectToken)
+
+  if(token !== null){
+    navigation.navigate("Home", { token: token})
+  }
     const custom = styles
     return (
         <View
