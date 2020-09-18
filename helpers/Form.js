@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
 import { Text, TextInput, View, Button } from 'react-native';
 import { CheckBox } from "react-native-elements"
+import { useDispatch, useSelector } from "react-redux"
 
+import { sendUserInfo } from "../store/user/actions"
+import { selectToken } from "../store/user/selectors"
 import { styles } from "../StyledComponents/form"
 
 export const Form = ({fields}) => {
+  const dispatch = useDispatch()
+
+  const token = useSelector(selectToken)
+  
   const fieldKeys = Object.keys(fields)
+
   const initialState = (fieldKeys) => {
     const state = {}
     fieldKeys.forEach((key) => {
@@ -13,6 +21,7 @@ export const Form = ({fields}) => {
     })
     return state
   }
+
   const [values, setValues] = useState(initialState(fieldKeys))
   
   const custom = styles
@@ -76,7 +85,13 @@ export const Form = ({fields}) => {
       )
         }
     })
-    console.log("captured", values)
+    
+    function sendInfo(data){
+      dispatch(sendUserInfo(data))
+
+      setValues("")
+    }
+    
   return (
       <View>
           {displayForm}
@@ -84,7 +99,8 @@ export const Form = ({fields}) => {
             style={custom.button}>
             <Button 
               title="Submit"
-              color="tomato" 
+              color="tomato"
+              onPress={() => sendInfo(values)} 
             />
           </View>
       </View>
