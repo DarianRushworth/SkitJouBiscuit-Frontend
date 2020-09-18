@@ -28,8 +28,11 @@ function PartyScreenStack(){
 
 function RegisterTabs(){
   return (
-    <TopTab.Navigator>
-      <TopTab.Screen name="Login" component={LoginScreen} />
+    <TopTab.Navigator
+      initialRouteName="Login">
+      <TopTab.Screen 
+        name="Login" 
+        component={LoginScreen} />
       <TopTab.Screen name="Sign-up" component={SignUpScreen} />
     </TopTab.Navigator>
   )

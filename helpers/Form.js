@@ -2,8 +2,11 @@ import React from 'react';
 import { Text, TextInput, View, Button } from 'react-native';
 import { CheckBox } from "react-native-elements"
 
+import { styles } from "../StyledComponents/form"
+
 export const Form = ({fields}) => {
     const fieldKeys = Object.keys(fields)
+    const custom = styles
 
   const displayForm =  fieldKeys.map((key) => {
       const field = fields[key]
@@ -15,7 +18,11 @@ export const Form = ({fields}) => {
                 style={{
                     justifyContent: "center",
                 }}>
-                <Text>{field.label}:</Text>
+                <Text
+                  style={custom.text}
+                >
+                  {field.label}:
+                </Text>
               <TextInput />
             </View>
           )
@@ -38,7 +45,11 @@ export const Form = ({fields}) => {
             style={{
                 justifyContent: "center",
             }}>
-              <Text>{field.label}:</Text>
+              <Text 
+                style={custom.text}
+              >
+                {field.label}:
+              </Text>
               <TextInput {...field.inputProps}/>
           </View>
       )
@@ -48,7 +59,13 @@ export const Form = ({fields}) => {
   return (
       <View>
           {displayForm}
-          <Button title="Submit" />
+          <View
+            style={custom.button}>
+            <Button 
+              title="Submit"
+              color="tomato" 
+            />
+          </View>
       </View>
   )
 };
