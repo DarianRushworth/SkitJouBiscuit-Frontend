@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, TextInput, View, Button } from 'react-native';
 import { CheckBox } from "react-native-elements"
 
 import { styles } from "../StyledComponents/form"
 
 export const Form = ({fields}) => {
-    const fieldKeys = Object.keys(fields)
-    const custom = styles
+  const fieldKeys = Object.keys(fields)
+  const initialState = (fieldKeys) => {
+    const state = {}
+    fieldKeys.forEach((key) => {
+      state[key] = ""
+    })
+    return state
+  }
+  const [values, setValues] = useState(initialState(fieldKeys))
+  
+  const custom = styles
+
+  const changeValues = (key, value) => {
+    const newState = {...values, [key]: value}
+    setValues(newState)
+  }
 
   const displayForm =  fieldKeys.map((key) => {
       const field = fields[key]
@@ -23,7 +37,10 @@ export const Form = ({fields}) => {
                 >
                   {field.label}:
                 </Text>
-              <TextInput />
+              <TextInput 
+                value={values[key]}
+                onChangeText={(text) => changeValues(key, text)}
+              />
             </View>
           )
       } else if(field.inputProps.checkbox){
@@ -35,6 +52,8 @@ export const Form = ({fields}) => {
                 }}>
               <CheckBox
                 title={field.label}
+                value={values[key]}
+                onChangeText={(text) => changeValues(key, text)}
               />
             </View>
         )
@@ -50,12 +69,14 @@ export const Form = ({fields}) => {
               >
                 {field.label}:
               </Text>
-              <TextInput {...field.inputProps}/>
+              <TextInput {...field.inputProps}
+              value={values[key]}
+              onChangeText={(text) => changeValues(key, text)}/>
           </View>
       )
         }
     })
-
+    console.log("captured", values)
   return (
       <View>
           {displayForm}
