@@ -12,7 +12,7 @@ export default function LoginScreen({ navigation }){
   const token = useSelector(selectToken)
 
   if(token !== null){
-    navigation.navigate("Home", { token: token})
+    navigation.navigate("Home")
   }
     const custom = styles
     return (

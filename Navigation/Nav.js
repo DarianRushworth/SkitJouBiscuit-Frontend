@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack"
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { Ionicons } from "@expo/vector-icons"
+import { useSelector } from "react-redux"
 
 import HomeScreen from "../components/HomeScreen"
 import LoginScreen from "../components/LoginScreen"
@@ -11,6 +12,8 @@ import SignUpScreen from "../components/SignUpScreen"
 import PartiesScreen from "../components/PartiesScreen"
 import PartyScreen from "../components/PartyScreen"
 import CommentsScreen from "../components/CommentsScreen"
+import ProfileScreen from "../components/ProfileScreen"
+import { selectToken } from "../store/user/selectors"
 
 const Tab = createBottomTabNavigator()
 const TopTab = createMaterialTopTabNavigator()
@@ -48,6 +51,11 @@ function PartyTabs(){
 
 
 export default function Nav(){
+  const token = useSelector(selectToken)
+  
+  const userTab = token === null
+                ? <Tab.Screen name="Register" component={RegisterTabs} />
+                : <Tab.Screen name="User" component={ProfileScreen} />
 return (
     <NavigationContainer>
       <Tab.Navigator
@@ -62,6 +70,8 @@ return (
               iconName = "ios-planet"
             } else if(route.name === "Register"){
               iconName = "ios-log-in"
+            } else if(route.name === "User"){
+              iconName= "ios-person"
             }
             return <Ionicons name={iconName} size={size} color={color} />
           }
@@ -72,7 +82,7 @@ return (
         }}>
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Parties" component={PartyScreenStack} />
-        <Tab.Screen name="Register" component={RegisterTabs} />
+        {userTab}
       </Tab.Navigator>
     </NavigationContainer>
 )
