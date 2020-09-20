@@ -1,13 +1,22 @@
 import React from "react"
 import { View, Image, ScrollView } from "react-native"
+import { useSelector } from "react-redux"
 
+import { selectToken } from "../store/user/selectors"
 import { styles } from "../StyledComponents/signup"
 import { Form } from "../helpers/Form"
 
 const image = { uri: "https://booksparks.com/wp-content/uploads/2018/04/dance-party-dancing-GIF-downsized.gif" }
 
-export default function SignUpScreen(){
+export default function SignUpScreen({ navigation }){
+    const token = useSelector(selectToken)
+
+    if(token !== null){
+        navigation.navigate("Home")
+      }
+
     const custom = styles
+
     return (
         <ScrollView 
             styles={custom.container}>
