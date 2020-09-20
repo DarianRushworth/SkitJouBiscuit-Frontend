@@ -19,5 +19,10 @@ export const styles = StyleSheet.create({
         width: 300,
         textAlign: "center",
         alignSelf: "center",
+    },
+    image: {
+        height: 200,
+        width: 350,
+        resizeMode: "cover",
     }
 })
