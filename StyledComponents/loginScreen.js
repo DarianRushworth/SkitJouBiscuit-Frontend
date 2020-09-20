@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     image: {
         flex: 1,
         resizeMode: "cover",
-        height: 600,
+        height: 200,
         justifyContent: "center",
     },
     textContainer : {

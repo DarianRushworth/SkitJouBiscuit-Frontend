@@ -35,8 +35,8 @@ export function sendUserInfo(data){
                                     email: data.email,
                                     password: data.password,
                                 })
-
-            dispatch(setUser(registerInfo.data))
+            console.log("sign-up test", registerInfo)
+            // dispatch(setUser(registerInfo.data))
 
         } catch(error){
             console.log(error.message)

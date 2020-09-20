@@ -1,5 +1,5 @@
 import React from "react"
-import { View, Image } from "react-native"
+import { View, Image, ScrollView } from "react-native"
 import { useSelector } from "react-redux"
 
 import { selectToken } from "../store/user/selectors"
@@ -16,7 +16,7 @@ export default function LoginScreen({ navigation }){
   }
     const custom = styles
     return (
-        <View
+        <ScrollView
             style={custom.container}>
             <Image
               source={image}
@@ -39,6 +39,6 @@ export default function LoginScreen({ navigation }){
                         },
                       }}/>
                 </View>
-        </View>
+        </ScrollView>
     )
 }
