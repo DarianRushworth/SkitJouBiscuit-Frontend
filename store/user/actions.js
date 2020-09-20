@@ -23,7 +23,6 @@ function setUser(data){
 export function sendUserInfo(data){
     return async(dispatch, getState) => {
         try{
-            console.log("data test", data)
             const registerInfo = data.fullName
                                 ? await axios.post(`${API_URL}/signup`,{
                                     fullName: data.fullName,

@@ -11,7 +11,6 @@ import { styles } from "../StyledComponents/partiesScreen"
 export default function PartiesScreen({route, navigation}){
     const dispatch = useDispatch()
     const parties = useSelector(selectParties)
-    // console.log("party test", parties)
     const custom = styles
     
     const renderParty = ({item}) => (
