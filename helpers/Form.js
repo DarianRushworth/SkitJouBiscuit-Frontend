@@ -27,11 +27,6 @@ export const Form = ({fields}) => {
   const changeValues = (key, value) => {
     const newState = {...values, [key]: value}
     setValues(newState)
-    if(!owner){
-    setOwner(true)
-    } else {
-      setOwner(false)
-    }
   } 
 
   const displayForm =  fieldKeys.map((key) => {
@@ -73,8 +68,14 @@ export const Form = ({fields}) => {
                 checkedColor="tomato"
                 iconRight={true}
                 title="Yes I am"
-                value={values[key]}
-                onPress={(text) => changeValues(key, text)}
+                value={owner[key]}
+                onPress={() => {
+                  if(!owner){
+                    setOwner(true)
+                  } else if(owner){
+                    setOwner(false)
+                  }
+                  changeValues(key, owner)}}
               />
             </View>
         )

@@ -23,13 +23,14 @@ function setUser(data){
 export function sendUserInfo(data){
     return async(dispatch, getState) => {
         try{
+            console.log("data test", data)
             const registerInfo = data.fullName
                                 ? await axios.post(`${API_URL}/signup`,{
                                     fullName: data.fullName,
                                     favoriteArtist: data.favoriteArtist,
                                     email: data.email,
                                     password: data.password,
-                                    isEventOwner: data.isEventOwner,
+                                    isEventOwner: JSON.stringify(data.isEventOwner) === "false" ?"true" :"false",
                                 })
                                 : await axios.post(`${API_URL}/login`,{
                                     email: data.email,
