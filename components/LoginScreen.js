@@ -1,20 +1,27 @@
 import React from "react"
-import { View, ImageBackground } from "react-native"
+import { View, Image, ScrollView } from "react-native"
+import { useSelector } from "react-redux"
 
+import { selectToken } from "../store/user/selectors"
 import { styles } from "../StyledComponents/loginScreen"
 import { Form } from "../helpers/Form"
 
-const image = { uri: "https://www.psybient.org/love/wp-content/uploads/Boom-2018.jpg" }
+const image = { uri: "https://thumbs.gfycat.com/HealthyOrderlyHuman-max-1mb.gif" }
 
-export default function LoginScreen(){
+export default function LoginScreen({ navigation }){
+  const token = useSelector(selectToken)
+
+  if(token !== null){
+    navigation.navigate("Home")
+  }
     const custom = styles
     return (
-        <View
+        <ScrollView
             style={custom.container}>
-            <ImageBackground
-                source={image}
-                style={custom.image}
-                >
+            <Image
+              source={image}
+              style={custom.image}
+            />
                 <View style={custom.textContainer}>
                 <Form
                     fields={{
@@ -32,7 +39,6 @@ export default function LoginScreen(){
                         },
                       }}/>
                 </View>
-            </ImageBackground>
-        </View>
+        </ScrollView>
     )
 }

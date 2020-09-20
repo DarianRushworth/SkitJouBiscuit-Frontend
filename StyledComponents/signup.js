@@ -6,14 +6,7 @@ export const styles = StyleSheet.create({
         flexDirection: "column",
     },
     image: {
-        flex: 1,
-        resizeMode: "cover",
         height: 200,
-        justifyContent: "center",
-    },
-    textContainer : {
-        flex: 1,
-        flexDirection: "column",
     },
     buttonContainer : {
         flex: 0,
