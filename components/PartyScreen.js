@@ -1,5 +1,5 @@
 import React from "react"
-import { View, Text, ScrollView } from "react-native"
+import { View, Text, ScrollView, Linking, Image } from "react-native"
 import { useSelector } from "react-redux"
 
 import { selectDetails } from "../store/party/selectors"
@@ -8,6 +8,22 @@ import { styles } from "../StyledComponents/partyScreen"
 export default function PartyScreen(){
     const details = useSelector(selectDetails)
     const custom = styles
+
+    function linkTicket(){
+        if(details.ticketLink !== null)
+        console.log("ticketlink", details.ticketLink)
+        Linking.openURL(`${details.ticketLink}`)
+    }
+
+    function ticketImage(){
+        if(details.ticketLink === null){
+                const noTicket = { uri: "https://gifimage.net/wp-content/uploads/2017/10/disappointed-gif.gif" }
+                return noTicket
+        } else {
+                const ticket = { uri: "https://vignette.wikia.nocookie.net/degrassi/images/1/19/Tumblr_lyu2b3q9cS1qjb59to1_500.gif/revision/latest/scale-to-width-down/340?cb=20141101014303"}
+                return ticket
+        }
+    }
     
     const displayDetails = () => {
         if(!details.id){
@@ -93,10 +109,11 @@ export default function PartyScreen(){
                     style={custom.textHead}>
                     Tickets:
                 </Text>
-                <Text
-                    style={custom.text}>
-                    {`${details.ticketLink === null ?"Tickets been pulled" :details.ticketLink}`}
-                </Text>
+                <Image
+                    source={ticketImage()}
+                    style={custom.image}
+                    onPress={() => linkTicket()}
+                />
                 </View>
             )
         }
