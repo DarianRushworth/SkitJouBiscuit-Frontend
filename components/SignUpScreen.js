@@ -1,23 +1,21 @@
 import React from "react"
-import { View, ImageBackground } from "react-native"
+import { View, Image } from "react-native"
 
-import { styles } from "../StyledComponents/loginScreen"
+import { styles } from "../StyledComponents/signup"
 import { Form } from "../helpers/Form"
 
-const image = { uri: "https://www.psybient.org/love/wp-content/uploads/Boom-2018.jpg" }
+const image = { uri: "https://booksparks.com/wp-content/uploads/2018/04/dance-party-dancing-GIF-downsized.gif" }
 
 export default function SignUpScreen(){
     const custom = styles
     return (
         <View 
             styles={custom.container}>
-            <ImageBackground
+            <Image
                 source={image}
                 style={custom.image}
-                >
-                <View style={{
-                    height: 1,
-                }}>
+            />
+                <View>
                     <Form 
                         fields={{
                             fullName: {
@@ -46,7 +44,6 @@ export default function SignUpScreen(){
                             }
                         }} />
                 </View>
-            </ImageBackground>
         </View>
     )
 }

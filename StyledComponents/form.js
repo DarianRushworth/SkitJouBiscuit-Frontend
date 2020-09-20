@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
     text: {
+        flexDirection: "column",
         textAlign: "center",
         fontWeight: "bold",
         color: "tomato",
@@ -11,5 +12,10 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         width: 80,
         marginLeft: 140,
+    },
+    checkbox: {
+        width: 100,
+        alignContent: "center",
+        marginLeft: 125,
     }
 })

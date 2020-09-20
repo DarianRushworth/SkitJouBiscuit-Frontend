@@ -20,13 +20,19 @@ export const Form = ({fields}) => {
   }
 
   const [values, setValues] = useState(initialState(fieldKeys))
+  const [owner, setOwner] = useState(false)
   
   const custom = styles
 
   const changeValues = (key, value) => {
     const newState = {...values, [key]: value}
     setValues(newState)
-  }
+    if(!owner){
+    setOwner(true)
+    } else {
+      setOwner(false)
+    }
+  } 
 
   const displayForm =  fieldKeys.map((key) => {
       const field = fields[key]
@@ -52,14 +58,23 @@ export const Form = ({fields}) => {
       } else if(field.inputProps.checkbox){
         return (
           <View 
-                key={key}
-                style={{
-                    justifyContent: "center",
-                }}>
+            key={key}
+            style={{
+                justifyContent: "center",
+          }}>
+          <Text
+            style={custom.text}>
+            {field.label}:
+          </Text>
               <CheckBox
-                title={field.label}
+                containerStyle={custom.checkbox}
+                center
+                checked={owner}
+                checkedColor="tomato"
+                iconRight={true}
+                title="Yes I am"
                 value={values[key]}
-                onChangeText={(text) => changeValues(key, text)}
+                onPress={(text) => changeValues(key, text)}
               />
             </View>
         )
@@ -87,6 +102,7 @@ export const Form = ({fields}) => {
       dispatch(sendUserInfo(data))
 
       setValues("")
+      setOwner(false)
     }
     
   return (
