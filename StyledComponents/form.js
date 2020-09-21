@@ -17,5 +17,10 @@ export const styles = StyleSheet.create({
         width: 100,
         alignContent: "center",
         marginLeft: 125,
+    },
+    validation : {
+        textAlign: "center",
+        fontSize: 12,
+        color: "red",
     }
 })

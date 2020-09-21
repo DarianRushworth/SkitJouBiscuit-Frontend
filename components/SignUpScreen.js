@@ -50,7 +50,7 @@ export default function SignUpScreen({ navigation }){
                             },
                             password: {
                                 label: "Password",
-                                validators: [contentValidator, lengthValidator],
+                                validators: [lengthValidator],
                                 inputProps: {
                                     secureTextEntry: true,
                                 }

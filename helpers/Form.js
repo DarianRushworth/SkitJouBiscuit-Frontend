@@ -36,6 +36,7 @@ export const Form = ({fields}) => {
 
   const displayForm =  fieldKeys.map((key) => {
       const field = fields[key]
+      const fieldError = validationErrors[key]
 
       if(!field.inputProps){
           return (
@@ -53,6 +54,10 @@ export const Form = ({fields}) => {
                 value={values[key]}
                 onChangeText={(text) => changeValues(key, text)}
               />
+              <Text
+                style={custom.validation}>
+                {fieldError}
+              </Text>
             </View>
           )
       } else if(field.inputProps.checkbox){
@@ -98,7 +103,12 @@ export const Form = ({fields}) => {
               </Text>
               <TextInput {...field.inputProps}
               value={values[key]}
-              onChangeText={(text) => changeValues(key, text)}/>
+              onChangeText={(text) => changeValues(key, text)}
+              />
+              <Text
+                style={custom.validation}>
+                {fieldError}
+              </Text>
           </View>
       )
         }
@@ -112,7 +122,7 @@ export const Form = ({fields}) => {
       if(hasValidationError(errors)){
         return setValidationErrors(errors)
       }
-      
+
       dispatch(sendUserInfo(data))
 
       setValues("")

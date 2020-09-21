@@ -35,7 +35,7 @@ export default function LoginScreen({ navigation }){
                         },
                         password: {
                           label: 'Password',
-                          validators: [contentValidator, lengthValidator],
+                          validators: [lengthValidator],
                           inputProps: {
                             secureTextEntry: true,
                           },
