@@ -4,6 +4,7 @@ import { CheckBox } from "react-native-elements"
 import { useDispatch } from "react-redux"
 
 import { sendUserInfo } from "../store/user/actions"
+import { hasValidationError, validateFields } from "./Validations"
 import { styles } from "../StyledComponents/form"
 
 export const Form = ({fields}) => {
@@ -21,16 +22,26 @@ export const Form = ({fields}) => {
 
   const [values, setValues] = useState(initialState(fieldKeys))
   const [owner, setOwner] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("")
+  const [validationErrors, setValidationErrors] = useState(
+    initialState(fieldKeys),
+  )
   
   const custom = styles
 
   const changeValues = (key, value) => {
     const newState = {...values, [key]: value}
     setValues(newState)
+
+    if (validationErrors[key]) {
+      const newErrors = { ...validationErrors, [key]: "" }
+      setValidationErrors(newErrors)
+    }
   } 
 
   const displayForm =  fieldKeys.map((key) => {
       const field = fields[key]
+      const fieldError = validationErrors[key]
 
       if(!field.inputProps){
           return (
@@ -48,6 +59,10 @@ export const Form = ({fields}) => {
                 value={values[key]}
                 onChangeText={(text) => changeValues(key, text)}
               />
+              <Text
+                style={custom.validation}>
+                {fieldError}
+              </Text>
             </View>
           )
       } else if(field.inputProps.checkbox){
@@ -93,13 +108,26 @@ export const Form = ({fields}) => {
               </Text>
               <TextInput {...field.inputProps}
               value={values[key]}
-              onChangeText={(text) => changeValues(key, text)}/>
+              onChangeText={(text) => changeValues(key, text)}
+              />
+              <Text
+                style={custom.validation}>
+                {fieldError}
+              </Text>
           </View>
       )
         }
     })
     
     function sendInfo(data){
+      setErrorMessage("")
+      setValidationErrors(initialState(fieldKeys))
+
+      const errors = validateFields(fields, values)
+      if(hasValidationError(errors)){
+        return setValidationErrors(errors)
+      }
+
       dispatch(sendUserInfo(data))
 
       setValues("")

@@ -3,6 +3,7 @@ import { View, Image, ScrollView } from "react-native"
 import { useSelector } from "react-redux"
 
 import { selectToken } from "../store/user/selectors"
+import { contentValidator, lengthValidator } from "../helpers/Validations"
 import { styles } from "../StyledComponents/loginScreen"
 import { Form } from "../helpers/Form"
 
@@ -27,12 +28,14 @@ export default function LoginScreen({ navigation }){
                     fields={{
                         email: {
                           label: 'Email',
+                          validators: [contentValidator],
                           inputProps: {
                             keyboardType: 'email-address',
                           },
                         },
                         password: {
                           label: 'Password',
+                          validators: [lengthValidator],
                           inputProps: {
                             secureTextEntry: true,
                           },
