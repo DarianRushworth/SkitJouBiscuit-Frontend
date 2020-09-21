@@ -3,6 +3,7 @@ import { View, Image, ScrollView } from "react-native"
 import { useSelector } from "react-redux"
 
 import { selectToken } from "../store/user/selectors"
+import { contentValidator, lengthValidator } from "../helpers/Validations"
 import { styles } from "../StyledComponents/signup"
 import { Form } from "../helpers/Form"
 
@@ -29,12 +30,14 @@ export default function SignUpScreen({ navigation }){
                         fields={{
                             fullName: {
                                 label: "Full-Name",
+                                validators: [contentValidator],
                             },
                             favoriteArtist: {
                                 label: "Favorite Artist",
                             },
                             email: {
                                 label: "Email",
+                                validators: [contentValidator],
                                 inputProps: {
                                     keyboardType: "email-address",
                                 },
@@ -47,6 +50,7 @@ export default function SignUpScreen({ navigation }){
                             },
                             password: {
                                 label: "Password",
+                                validators: [contentValidator, lengthValidator],
                                 inputProps: {
                                     secureTextEntry: true,
                                 }
