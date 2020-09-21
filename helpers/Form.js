@@ -32,6 +32,11 @@ export const Form = ({fields}) => {
   const changeValues = (key, value) => {
     const newState = {...values, [key]: value}
     setValues(newState)
+
+    if (validationErrors[key]) {
+      const newErrors = { ...validationErrors, [key]: "" }
+      setValidationErrors(newErrors)
+    }
   } 
 
   const displayForm =  fieldKeys.map((key) => {
