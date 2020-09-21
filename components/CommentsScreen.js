@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Text, View, ScrollView } from "react-native"
 import { useSelector } from "react-redux"
 import { Card, Input } from "react-native-elements"
@@ -8,9 +8,13 @@ import { selectComments } from "../store/party/selectors"
 import { styles } from "../StyledComponents/commentsScreen"
 
 export default function CommentsScreen(){
+    const [newComment, setNewComment ] = useState("")
     const comments = useSelector(selectComments)
     
     const custom = styles
+
+    const sendIcon = <Icon name="paper-plane" size={20} 
+                        onPress={() => "SEND THE COMMENT"}/>
 
     const display = () => {
         if(comments.length === 0){
@@ -54,6 +58,8 @@ export default function CommentsScreen(){
             <Input
                 placeholder="Comment"
                 leftIcon={{ type: 'font-awesome', name: 'comment' }}
+                rightIcon={sendIcon}
+                onChangeText={(value) => setNewComment(value)}
                 />
             </View>
         </View>
