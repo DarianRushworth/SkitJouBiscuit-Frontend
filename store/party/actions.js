@@ -9,6 +9,13 @@ function setDetails(data){
     }
 }
 
+function setComments(data){
+    return {
+        type: "SET_COMMENTS",
+        payload: data,
+    }
+}
+
 export function commentFetcher(id){
     return async(dispatch, getState) => {
         try{
@@ -19,7 +26,8 @@ export function commentFetcher(id){
                     Authorization: `Bearer ${token}`
                 }
             })
-            console.log("comments found", comments)
+            
+            dispatch(setComments(comments.data.comments))
 
         } catch(error){
             console.log(error.message)
