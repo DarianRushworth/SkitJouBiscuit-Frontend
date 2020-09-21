@@ -16,6 +16,25 @@ function setComments(data){
     }
 }
 
+export function sendNewComment(id, data){
+    return async(dispatch, getState) => {
+        try{
+            const token = await AsyncStorage.getItem("token")
+            const comment = await axios.post(`${API_URL}/parties/${id}/newComment`, {
+                input: data,
+            },{
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            console.log("new comment", comment)
+
+        } catch(error){
+            console.log(error.message)
+        }
+    }
+}
+
 export function commentFetcher(id){
     return async(dispatch, getState) => {
         try{

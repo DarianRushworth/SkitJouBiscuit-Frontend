@@ -6,6 +6,11 @@ function setUser(data){
     
     const storeData = async (value) => {
         try{
+            const tokenNeeded = await AsyncStorage.getItem("token")
+            if(tokenNeeded !== null){
+                await AsyncStorage.removeItem("token")
+            }
+
             await AsyncStorage.setItem("token", value)
 
         } catch(error){
@@ -20,22 +25,22 @@ function setUser(data){
     }
 }
 
-export function sendUserInfo(data){
+export function sendUserInfo(info){
     return async(dispatch, getState) => {
         try{
-            const registerInfo = data.fullName
+            const registerInfo = info.fullName
                                 ? await axios.post(`${API_URL}/signup`,{
-                                    fullName: data.fullName,
-                                    favoriteArtist: data.favoriteArtist,
-                                    email: data.email,
-                                    password: data.password,
-                                    isEventOwner: JSON.stringify(data.isEventOwner) === "false" ?"true" :"false",
+                                    fullName: info.fullName,
+                                    favoriteArtist: info.favoriteArtist,
+                                    email: info.email,
+                                    password: info.password,
+                                    isEventOwner: JSON.stringify(info.isEventOwner) === "false" ?"true" :"false",
                                 })
                                 : await axios.post(`${API_URL}/login`,{
-                                    email: data.email,
-                                    password: data.password,
+                                    email: info.email,
+                                    password: info.password,
                                 })
-            
+        
             dispatch(setUser(registerInfo.data))
 
         } catch(error){
