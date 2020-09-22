@@ -1,7 +1,7 @@
 import React from "react"
 import { View, FlatList, Text, Image, TouchableOpacity } from "react-native"
 import { useDispatch, useSelector } from "react-redux"
-import { AsyncStorage } from "react-native"
+import AsyncStorage from "@react-native-community/async-storage"
 
 import { selectParties } from "../store/parties/selectors"
 import { selectToken } from "../store/user/selectors"
@@ -43,14 +43,19 @@ export default function PartiesScreen({route, navigation}){
     )
 
     async function moreDetails(partyId){
+        try{
         const tokenStored = await AsyncStorage.getItem("token")
-
+        
         if(token === tokenStored){
             dispatch(commentFetcher(partyId))
         }
         
         dispatch(detailFetcher(partyId))
         navigation.navigate("PartyDetails")
+
+        } catch(error){
+            console.log(error.message)
+        }
     }
 
     function moreParties(){dispatch(partyFetcher(parties.length))}

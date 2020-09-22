@@ -17,7 +17,10 @@ export default function CommentsScreen(){
     const custom = styles
 
     const sendIcon = <Icon name="paper-plane" size={20} 
-                        onPress={() => dispatch(sendNewComment(party.id, newComment))}/>
+                        onPress={() => {
+                            dispatch(sendNewComment(party.id, newComment))
+                            setNewComment("")}}
+                        />
 
     const display = () => {
         if(comments.length === 0){
@@ -30,13 +33,14 @@ export default function CommentsScreen(){
         )
         } else {
         return comments.map(comment => {
+            const { fullName } = comment.user
             return (
                 <Card
                     key={comment.id}
                     containerStyle={custom.card}>
                     <Card.Title
                         style={custom.text}>
-                        {comment.user.fullName}
+                        {fullName}
                     </Card.Title>
                     <Card.Divider />
                     <View>

@@ -1,6 +1,6 @@
 import axios from "axios"
 import { API_URL } from "../../config/constants"
-import { AsyncStorage } from "react-native"
+import AsyncStorage from "@react-native-community/async-storage"
 
 function setDetails(data){
     return {
@@ -47,7 +47,9 @@ export function commentFetcher(id){
     return async(dispatch, getState) => {
         try{
             const commentsLength = getState().Info.comments.length
-            const token = await AsyncStorage.getItem("token")
+            
+            const token = getState().User.token
+            
             const comments = await axios.get(`${API_URL}/parties/${id}/comments?offset=${commentsLength}&limit=5`,{
                 headers: {
                     Authorization: `Bearer ${token}`
