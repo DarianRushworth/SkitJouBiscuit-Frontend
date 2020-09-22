@@ -10,5 +10,8 @@ export const styles = StyleSheet.create({
     },
     input: {
         flex: 1,
+    },
+    inputStyle: {
+        color: "tomato",
     }
 })
