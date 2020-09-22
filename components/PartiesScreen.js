@@ -1,9 +1,12 @@
 import React from "react"
 import { View, FlatList, Text, Image, TouchableOpacity } from "react-native"
 import { useDispatch, useSelector } from "react-redux"
+import AsyncStorage from "@react-native-community/async-storage"
 
 import { selectParties } from "../store/parties/selectors"
+import { selectToken } from "../store/user/selectors"
 import { partyFetcher } from "../store/parties/actions"
+import { commentFetcher } from "../store/party/actions"
 import { detailFetcher } from "../store/party/actions"
 import { styles } from "../StyledComponents/partiesScreen"
 
@@ -11,6 +14,7 @@ import { styles } from "../StyledComponents/partiesScreen"
 export default function PartiesScreen({route, navigation}){
     const dispatch = useDispatch()
     const parties = useSelector(selectParties)
+    const token = useSelector(selectToken)
     const custom = styles
     
     const renderParty = ({item}) => (
@@ -38,9 +42,20 @@ export default function PartiesScreen({route, navigation}){
         </View>
     )
 
-    function moreDetails(partyId){
+    async function moreDetails(partyId){
+        try{
+        const tokenStored = await AsyncStorage.getItem("token")
+        
+        if(token === tokenStored){
+            dispatch(commentFetcher(partyId))
+        }
+        
         dispatch(detailFetcher(partyId))
         navigation.navigate("PartyDetails")
+
+        } catch(error){
+            console.log(error.message)
+        }
     }
 
     function moreParties(){dispatch(partyFetcher(parties.length))}
