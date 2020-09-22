@@ -1,3 +1,5 @@
+import AsyncStorage from "@react-native-community/async-storage"
+
 const initialState = {
     userData: {},
     token: null,
@@ -8,8 +10,8 @@ export default function userReducer(state = initialState, action){
         case "SET_USER":
             return {
                 ...state,
-                userData: {...state.userData, ...action.payload},
-                token: `${action.payload.token}`,
+                userData: {...action.payload},
+                token: action.payload.token,
             }
     
     default:

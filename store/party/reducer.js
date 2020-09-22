@@ -5,6 +5,14 @@ const initiallState = {
 
 export default function partyReducer(state = initiallState, action){
     switch(action.type){
+        case "SET_NEW_COMMENTS":
+            return {
+                ...state,
+                comments: [
+                    ...state.comments,
+                    ...action.payload
+                ]
+            }
         case "SET_COMMENTS":
             return {
                 ...state,

@@ -1,24 +1,8 @@
 import axios from "axios"
 import { API_URL } from "../../config/constants"
-import { AsyncStorage } from "react-native"
+import AsyncStorage from "@react-native-community/async-storage"
 
 function setUser(data){
-    
-    const storeData = async (value) => {
-        try{
-            const tokenNeeded = await AsyncStorage.getItem("token")
-            if(tokenNeeded !== null){
-                await AsyncStorage.removeItem("token")
-            }
-
-            await AsyncStorage.setItem("token", value)
-
-        } catch(error){
-            console.log(error.message)
-        }
-    }
-    storeData(data.token)
-    
     return {
         type: "SET_USER",
         payload: data
@@ -40,8 +24,21 @@ export function sendUserInfo(info){
                                     email: info.email,
                                     password: info.password,
                                 })
-        
-            dispatch(setUser(registerInfo.data))
+                                
+            const tokenNeeded = await AsyncStorage.getItem("token")
+
+            if(tokenNeeded !== null && tokenNeeded === registerInfo.data.token){
+                dispatch(setUser(registerInfo.data))
+            } else if(tokenNeeded !== null && tokenNeeded !== registerInfo.data.token){
+                const deleteToken = await AsyncStorage.clear()
+                if(deleteToken === null){
+                    const addToken = await AsyncStorage.setItem("token", registerInfo.data.token)
+                    dispatch(setUser(registerInfo.data))
+                }
+            } else if(tokenNeeded === null){
+                const addToken = await AsyncStorage.setItem("token", registerInfo.data.token)
+                dispatch(setUser(registerInfo.data))
+            }
 
         } catch(error){
             console.log(error.message)

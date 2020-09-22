@@ -16,18 +16,26 @@ function setComments(data){
     }
 }
 
-export function sendNewComment(id, data){
+function setNewComment(data){
+    return {
+        type: "SET_NEW_COMMENTS",
+        payload: data,
+    }
+}
+
+export function sendNewComment(id, Info){
     return async(dispatch, getState) => {
         try{
             const token = await AsyncStorage.getItem("token")
             const comment = await axios.post(`${API_URL}/parties/${id}/newComment`, {
-                input: data,
+                input: Info,
             },{
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             })
-            console.log("new comment", comment)
+            
+            dispatch(setNewComment(comment.data))
 
         } catch(error){
             console.log(error.message)

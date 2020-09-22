@@ -16,6 +16,9 @@ export default function CommentsScreen(){
     
     const custom = styles
 
+    const sendIcon = <Icon name="paper-plane" size={20} 
+                        onPress={() => dispatch(sendNewComment(party.id, newComment))}/>
+
     const display = () => {
         if(comments.length === 0){
         return (
@@ -58,7 +61,7 @@ export default function CommentsScreen(){
             <Input
                 placeholder="Comment"
                 leftIcon={{ type: 'font-awesome', name: 'comment' }}
-                rightIcon={{ type: "font-awesome", name: "paper-plane"}}
+                rightIcon={sendIcon}
                 onChangeText={(value) => setNewComment(value)}
                 />
             </View>
