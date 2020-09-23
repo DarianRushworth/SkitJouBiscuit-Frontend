@@ -37,6 +37,33 @@ function setNoStatus(){
     }
 }
 
+function setNewStatus(data){
+    return {
+        type: "SET_NEW_STATUS",
+        payload: data
+    }
+}
+
+export function newPartyStatus(id, data){
+    return async(dispatch, getState) => {
+        try{
+            const token = await AsyncStorage.getItem("token")
+            const newStatus = await axios.post(`${API_URL}/parties/${id}/newFavored`,{
+                status: data,
+            },{
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            
+            dispatch(setNewStatus(newStatus.data))
+
+        } catch(error){
+            console.log(error.message)
+        }
+    }
+}
+
 export function statusFetcher(id){
     return async(dispatch, getState) => {
         try{

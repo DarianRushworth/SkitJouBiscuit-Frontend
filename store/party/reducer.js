@@ -10,6 +10,26 @@ const initiallState = {
 
 export default function partyReducer(state = initiallState, action){
     switch(action.type){
+        case "SET_NEW_STATUS":
+            if(action.payload.status === "going"){
+            return {
+                ...state,
+                status: {
+                    ...state.status,
+                    going: state.status.going + 1,
+                    users: [...state.status.users, action.payload]
+                }
+            }
+        } else if(action.payload.status === "interested"){
+            return {
+                ...state,
+                status: {
+                    ...state.status,
+                    interested: state.status.interested + 1,
+                    users: [...state.status.users, action.payload]
+                }
+            }
+        }
         case "SET_NO_STATUS":
             return {
                 ...state,

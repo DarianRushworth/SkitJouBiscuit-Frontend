@@ -1,12 +1,14 @@
 import React from "react"
 import { View, Text, ScrollView, Linking, Image } from "react-native"
 import { Avatar, Badge } from "react-native-elements"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 
 import { selectDetails, selectStatusData } from "../store/party/selectors"
+import { newPartyStatus } from "../store/party/actions"
 import { styles } from "../StyledComponents/partyScreen"
 
 export default function PartyScreen(){
+    const dispatch = useDispatch()
     const details = useSelector(selectDetails)
     const status = useSelector(selectStatusData)
     console.log("status data out of state", status)
@@ -36,7 +38,10 @@ export default function PartyScreen(){
                     rounded
                     title="GOING"
                     containerStyle={custom.avatar1}
-                    titleStyle={custom.avatarText} />
+                    titleStyle={custom.avatarText} 
+                    onPress={() => {
+                        dispatch(newPartyStatus(details.id, "going"))
+                    }} />
                 <Badge 
                     status="success"
                     containerStyle={{
@@ -50,7 +55,10 @@ export default function PartyScreen(){
                     rounded
                     title="Maybe"
                     containerStyle={custom.avatar2}
-                    titleStyle={custom.avatarText} />
+                    titleStyle={custom.avatarText} 
+                    onPress={() => {
+                        dispatch(newPartyStatus(details.id, "interested"))
+                    }}/>
                 <Badge 
                     status="success"
                     containerStyle={{
