@@ -32,7 +32,7 @@ I then came to the last phase of my planning, which was to use these **Frontend 
 
 <img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Redirect.gif" alt="Redirect" align="left" />
 
-### Login:
+<strong> Login: </strong>
 
 <img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Login.gif" alt="Login" align="right" />
 
