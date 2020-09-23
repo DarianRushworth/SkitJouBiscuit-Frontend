@@ -1,5 +1,3 @@
-import AsyncStorage from "@react-native-community/async-storage"
-
 const initialState = {
     userData: {},
     token: null,

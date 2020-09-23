@@ -11,7 +11,6 @@ export default function PartyScreen(){
     const dispatch = useDispatch()
     const details = useSelector(selectDetails)
     const status = useSelector(selectStatusData)
-    console.log("status data out of state", status)
     const custom = styles
 
     function linkTicket(){
