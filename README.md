@@ -28,15 +28,6 @@ I then came to the last phase of my planning, which was to use these **Frontend 
 
 ## Key Features:
 
-### Redirect:
-
-<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Redirect.gif" alt="Redirect" align="left" />
-
-<strong align="right> Login: </strong>
-
-<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Login.gif" alt="Login" align="right" />
-
-### Party Status and Comments:
-
-<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/PartiesComments.gif" alt="Party Comments" />
-
+|Redirect  |Login  |Party Comments  |
+|----------|-------|----------------|
+|<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Redirect.gif" alt="Redirect" />|<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Login.gif" alt="Login" />|<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/PartiesComments.gif" alt="Party Comments" />|
