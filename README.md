@@ -30,13 +30,13 @@ I then came to the last phase of my planning, which was to use these **Frontend 
 
 ### Redirect:
 
-<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Redirect.gif" alt="Redirect" align="left" width=100 />
+<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Redirect.gif" alt="Redirect" align="left" />
 
-<strong align="center"> Login: </strong>
+<strong align="right> Login: </strong>
 
-<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Login.gif" alt="Login" align="center" width=100 />
+<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Login.gif" alt="Login" align="right" />
 
-<strong textAlign="right" > Party Status and Comments:</strong>
+### Party Status and Comments:
 
-<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/PartiesComments.gif" alt="Party Comments" align="right" width=100 />
+<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/PartiesComments.gif" alt="Party Comments" />
 
