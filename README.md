@@ -36,7 +36,7 @@ I then came to the last phase of my planning, which was to use these **Frontend 
 
 <img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Login.gif" alt="Login" align="center" width=100 />
 
-<strong align="right" > Party Status and Comments:</strong>
+<strong textAlign="right" > Party Status and Comments:</strong>
 
 <img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/PartiesComments.gif" alt="Party Comments" align="right" width=100 />
 
