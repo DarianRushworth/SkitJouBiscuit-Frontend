@@ -24,5 +24,21 @@ export const styles = StyleSheet.create({
         height: 200,
         width: 350,
         resizeMode: "cover",
+    },
+    avatarContainer: {
+        flex: 1,
+        flexDirection: "row",
+    },
+    avatar1: {
+        backgroundColor: "tomato",
+        marginRight: 30,
+    },
+    avatar2: {
+        backgroundColor: "tomato",
+        marginLeft: 30,
+    },
+    avatarText: {
+        fontSize: 10,
+        color: "white",
     }
 })

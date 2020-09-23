@@ -10,24 +10,16 @@ const initiallState = {
 
 export default function partyReducer(state = initiallState, action){
     switch(action.type){
+        case "SET_NO_STATUS":
+            return {
+                ...state,
+                status: initiallState.status
+            }
         case "SET_STATUS":
             const goingArray = action.payload.filter(stat => stat.status === "going")
 
             const interestedArray = action.payload.filter(stat => stat.status === "interested")
-
-            const allArr = action.payload.map(stat => {
-                return {
-                    id: stat.id,
-                    status: stat.status,
-                    fullName: stat.user.fullName,
-                }
-            })
             
-            console.log(`
-            data: ${allArr},
-            going: ${goingArray.length},
-            interested: ${interestedArray.length}`)
-
             return {
                 ...state,
                 status: {

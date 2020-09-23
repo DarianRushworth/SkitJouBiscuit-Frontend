@@ -31,6 +31,12 @@ function setStatus(data){
     }
 }
 
+function setNoStatus(){
+    return {
+        type: "SET_NO_STATUS",
+    }
+}
+
 export function statusFetcher(id){
     return async(dispatch, getState) => {
         try{
@@ -43,6 +49,8 @@ export function statusFetcher(id){
             
             if(status.data.length >= 1){
                 dispatch(setStatus(status.data))
+            } else {
+                dispatch(setNoStatus())
             }
 
         } catch(error){
