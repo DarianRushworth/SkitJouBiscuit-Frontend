@@ -26,4 +26,8 @@ On completion of the Backend, I started with my **Frontend Boards**, I have crea
 
 I then came to the last phase of my planning, which was to use these **Frontend Boards** to come up with this "WIREFRAME TO UPLOAD," after all my planning I still could've thought a few aspects out earlier on, lessons to learn.
 
-### Key Features:
+## Key Features:
+
+### Registering:
+|[Redirect.gif](https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Redirect.gif)|[Login.gif](https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Login.gif)
+
