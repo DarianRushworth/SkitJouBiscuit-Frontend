@@ -31,5 +31,5 @@ I then came to the last phase of my planning, which was to use these **Frontend 
 ### Registering:
 <img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Redirect.gif" alt="Redirect" align="left" />
 <img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Login.gif" alt="Login" align="right" />
-| **Redirect** |![Redirect.gif](https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Redirect.gif)| **Login** |![Login.gif](https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Login.gif)
+
 
