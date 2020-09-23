@@ -24,7 +24,8 @@ On completion of the Backend, I started with my **Frontend Boards**, I have crea
 1. [Skeleton Setup](https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/projects/1), this outlines the instructions that I took to setup the "Skeleton" of the app.
 2. [Data Fetching](https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/projects/2), thsese are the instructions I followed upon fetching data from the Backend.
 
-I then came to the last phase of my planning, which was to use these **Frontend Boards** to come up with this ![Wireframe](https://res.cloudinary.com/djzjepmnr/image/upload/v1600884618/SkitJouBiscut---Wireframe-cc-Premium_evqetf.pdf) 
+I then came to the last phase of my planning, which was to use these **Frontend Boards** to come up with this
+<img src="https://res.cloudinary.com/djzjepmnr/image/upload/v1600884618/SkitJouBiscut---Wireframe-cc-Premium_evqetf.pdf" alt="Wireframe"/>
 After all my planning I still could've thought a few aspects out earlier on, lessons to learn.
 
 ## Key Features:
