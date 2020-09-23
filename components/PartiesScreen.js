@@ -6,7 +6,7 @@ import AsyncStorage from "@react-native-community/async-storage"
 import { selectParties } from "../store/parties/selectors"
 import { selectToken } from "../store/user/selectors"
 import { partyFetcher } from "../store/parties/actions"
-import { commentFetcher } from "../store/party/actions"
+import { commentFetcher, statusFetcher } from "../store/party/actions"
 import { detailFetcher } from "../store/party/actions"
 import { styles } from "../StyledComponents/partiesScreen"
 
@@ -48,6 +48,7 @@ export default function PartiesScreen({route, navigation}){
         
         if(token === tokenStored){
             dispatch(commentFetcher(partyId))
+            dispatch(statusFetcher(partyId))
         }
         
         dispatch(detailFetcher(partyId))

@@ -23,6 +23,69 @@ function setNewComment(data){
     }
 }
 
+function setStatus(data){
+    console.log("data test", data)
+    return {
+        type: "SET_STATUS",
+        payload: data,
+    }
+}
+
+function setNoStatus(){
+    return {
+        type: "SET_NO_STATUS",
+    }
+}
+
+function setNewStatus(data){
+    return {
+        type: "SET_NEW_STATUS",
+        payload: data
+    }
+}
+
+export function newPartyStatus(id, data){
+    return async(dispatch, getState) => {
+        try{
+            const token = await AsyncStorage.getItem("token")
+            const newStatus = await axios.post(`${API_URL}/parties/${id}/newFavored`,{
+                status: data,
+            },{
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            
+            dispatch(setNewStatus(newStatus.data))
+
+        } catch(error){
+            console.log(error.message)
+        }
+    }
+}
+
+export function statusFetcher(id){
+    return async(dispatch, getState) => {
+        try{
+            const token = await AsyncStorage.getItem("token")
+            const status = await axios.get(`${API_URL}/parties/${id}/favored`,{
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            
+            if(status.data.length >= 1){
+                dispatch(setStatus(status.data))
+            } else {
+                dispatch(setNoStatus())
+            }
+
+        } catch(error){
+            console.log(error.message)
+        }
+    }
+}
+
 export function sendNewComment(id, Info){
     return async(dispatch, getState) => {
         try{

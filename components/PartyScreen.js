@@ -1,17 +1,20 @@
 import React from "react"
 import { View, Text, ScrollView, Linking, Image } from "react-native"
-import { useSelector } from "react-redux"
+import { Avatar, Badge } from "react-native-elements"
+import { useSelector, useDispatch } from "react-redux"
 
-import { selectDetails } from "../store/party/selectors"
+import { selectDetails, selectStatusData } from "../store/party/selectors"
+import { newPartyStatus } from "../store/party/actions"
 import { styles } from "../StyledComponents/partyScreen"
 
 export default function PartyScreen(){
+    const dispatch = useDispatch()
     const details = useSelector(selectDetails)
+    const status = useSelector(selectStatusData)
     const custom = styles
 
     function linkTicket(){
         if(details.ticketLink !== null)
-        console.log("ticketlink", details.ticketLink)
         Linking.openURL(`${details.ticketLink}`)
     }
 
@@ -23,6 +26,48 @@ export default function PartyScreen(){
                 const ticket = { uri: "https://vignette.wikia.nocookie.net/degrassi/images/1/19/Tumblr_lyu2b3q9cS1qjb59to1_500.gif/revision/latest/scale-to-width-down/340?cb=20141101014303"}
                 return ticket
         }
+    }
+
+    function goingStatusDisplay(){
+        return (
+            <View
+                style={custom.avatarContainer}>
+                <Avatar 
+                    size="small"
+                    rounded
+                    title="GOING"
+                    containerStyle={custom.avatar1}
+                    titleStyle={custom.avatarText} 
+                    onPress={() => {
+                        dispatch(newPartyStatus(details.id, "going"))
+                    }} />
+                <Badge 
+                    status="success"
+                    containerStyle={{
+                        position: "absolute",
+                        top: -8,
+                        left: 20,
+                    }} 
+                    value={status.going} />
+                <Avatar
+                    size="small"
+                    rounded
+                    title="Maybe"
+                    containerStyle={custom.avatar2}
+                    titleStyle={custom.avatarText} 
+                    onPress={() => {
+                        dispatch(newPartyStatus(details.id, "interested"))
+                    }}/>
+                <Badge 
+                    status="success"
+                    containerStyle={{
+                        position: "absolute",
+                        top: -6,
+                        right: -6,
+                    }}
+                    value={status.interested} />
+            </View>
+        )
     }
     
     const displayDetails = () => {
@@ -41,6 +86,7 @@ export default function PartyScreen(){
                     {`${details.eventName}
                     `}
                 </Text>
+                {goingStatusDisplay()}
                 <Text
                     style={custom.textHead}>
                     Covid-Status:
