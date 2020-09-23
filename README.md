@@ -29,5 +29,5 @@ I then came to the last phase of my planning, which was to use these **Frontend 
 ## Key Features:
 
 ### Registering:
-|![Redirect.gif](https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Redirect.gif)|![Login.gif](https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Login.gif)
+|![Redirect.gif](https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Redirect.gif)|             ![Login.gif](https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Login.gif)
 
