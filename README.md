@@ -32,12 +32,11 @@ I then came to the last phase of my planning, which was to use these **Frontend 
 
 <img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Redirect.gif" alt="Redirect" align="left" />
 
-<strong> Login: </strong>
+<strong align="center"> Login: </strong>
 
-<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Login.gif" alt="Login" align="right" />
+<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Login.gif" alt="Login" align="center" />
 
+<strong align="right" > Party Status and Comments:</strong>
 
-### Party Status and Comments:
-
-<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/PartiesComments.gif" alt="Party Comments" align="center" />
+<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/PartiesComments.gif" alt="Party Comments" align="right" />
 
