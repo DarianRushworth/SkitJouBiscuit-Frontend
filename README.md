@@ -28,9 +28,12 @@ I then came to the last phase of my planning, which was to use these **Frontend 
 
 ## Key Features:
 
-### Registering:
+### Redirect:
 
 <img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Redirect.gif" alt="Redirect" align="left" />
+
+### Login:
+
 <img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Login.gif" alt="Login" align="right" />
 
 
