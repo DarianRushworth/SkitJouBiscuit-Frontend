@@ -2,16 +2,17 @@ import React from "react"
 import { View, Text, ScrollView, Linking, Image } from "react-native"
 import { useSelector } from "react-redux"
 
-import { selectDetails } from "../store/party/selectors"
+import { selectDetails, selectStatusData } from "../store/party/selectors"
 import { styles } from "../StyledComponents/partyScreen"
 
 export default function PartyScreen(){
     const details = useSelector(selectDetails)
+    const status = useSelector(selectStatusData)
+    console.log("status data out of state", status)
     const custom = styles
 
     function linkTicket(){
         if(details.ticketLink !== null)
-        console.log("ticketlink", details.ticketLink)
         Linking.openURL(`${details.ticketLink}`)
     }
 

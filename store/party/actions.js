@@ -23,6 +23,34 @@ function setNewComment(data){
     }
 }
 
+function setStatus(data){
+    console.log("data test", data)
+    return {
+        type: "SET_STATUS",
+        payload: data,
+    }
+}
+
+export function statusFetcher(id){
+    return async(dispatch, getState) => {
+        try{
+            const token = await AsyncStorage.getItem("token")
+            const status = await axios.get(`${API_URL}/parties/${id}/favored`,{
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            
+            if(status.data.length >= 1){
+                dispatch(setStatus(status.data))
+            }
+
+        } catch(error){
+            console.log(error.message)
+        }
+    }
+}
+
 export function sendNewComment(id, Info){
     return async(dispatch, getState) => {
         try{
