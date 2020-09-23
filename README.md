@@ -25,7 +25,7 @@ On completion of the Backend, I started with my **Frontend Boards**, I have crea
 2. [Data Fetching](https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/projects/2), thsese are the instructions I followed upon fetching data from the Backend.
 
 I then came to the last phase of my planning, which was to use these **Frontend Boards** to come up with this
-<img src="https://res.cloudinary.com/djzjepmnr/image/upload/v1600884618/SkitJouBiscut---Wireframe-cc-Premium_evqetf.pdf" alt="Wireframe"/>
+![SkitJouBiscut---Wireframe-cc-Premium.pdf](https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/SkitJouBiscut---Wireframe-cc-Premium.pdf)
 After all my planning I still could've thought a few aspects out earlier on, lessons to learn.
 
 ## Key Features:
