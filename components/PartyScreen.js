@@ -1,14 +1,16 @@
 import React from "react"
-import { View, Text, ScrollView, Linking, Image } from "react-native"
+import { View, Text, ScrollView, Linking, Image, Alert } from "react-native"
 import { Avatar, Badge } from "react-native-elements"
 import { useSelector, useDispatch } from "react-redux"
 
 import { selectDetails, selectStatusData } from "../store/party/selectors"
 import { newPartyStatus } from "../store/party/actions"
+import { selectToken } from "../store/user/selectors"
 import { styles } from "../StyledComponents/partyScreen"
 
-export default function PartyScreen(){
+export default function PartyScreen({ navigation }){
     const dispatch = useDispatch()
+    const token = useSelector(selectToken)
     const details = useSelector(selectDetails)
     const status = useSelector(selectStatusData)
     const custom = styles
@@ -28,6 +30,24 @@ export default function PartyScreen(){
         }
     }
 
+    function statusDispatch(data){
+        if(data === "going" && token !== null){
+            dispatch(newPartyStatus(details.id, "going"))
+        } else if(data === "interested" && token !== null){
+            dispatch(newPartyStatus(details.id, "interested"))
+        } else if(token === null){
+            Alert.alert(
+                "Please Register",
+                "Login/Sign-Up to use this feature.",
+                [
+                    {text: "Take me there", onPress: () => navigation.navigate("Register")},
+                    {text: "Cancel", style: "cancel", },
+                ],
+                { cancelable: false },
+            )
+        }
+    }
+
     function goingStatusDisplay(){
         return (
             <View
@@ -39,7 +59,7 @@ export default function PartyScreen(){
                     containerStyle={custom.avatar1}
                     titleStyle={custom.avatarText} 
                     onPress={() => {
-                        dispatch(newPartyStatus(details.id, "going"))
+                        statusDispatch("going")
                     }} />
                 <Badge 
                     status="success"
@@ -56,7 +76,7 @@ export default function PartyScreen(){
                     containerStyle={custom.avatar2}
                     titleStyle={custom.avatarText} 
                     onPress={() => {
-                        dispatch(newPartyStatus(details.id, "interested"))
+                        statusDispatch("interested")
                     }}/>
                 <Badge 
                     status="success"

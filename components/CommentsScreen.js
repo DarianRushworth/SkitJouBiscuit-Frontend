@@ -1,14 +1,14 @@
 import React, { useState } from "react"
 import { Text, View, ScrollView } from "react-native"
 import { useSelector, useDispatch } from "react-redux"
-import { Card, Input } from "react-native-elements"
+import { Card, Input, Badge } from "react-native-elements"
 import Icon from "react-native-vector-icons/FontAwesome"
 
 import { selectComments, selectDetails } from "../store/party/selectors"
 import { sendNewComment } from "../store/party/actions"
 import { styles } from "../StyledComponents/commentsScreen"
 
-export default function CommentsScreen(){
+export default function CommentsScreen({ navigation }){
     const dispatch = useDispatch()
     const [newComment, setNewComment ] = useState("")
     const comments = useSelector(selectComments)
@@ -26,9 +26,18 @@ export default function CommentsScreen(){
         if(comments.length === 0){
         return (
         <View>
-            <Text>
-                Comments here!
-            </Text>
+            <Badge
+                status="warning"
+                badgeStyle={{
+                    width: 150,
+                    height: 50,
+                }}
+                containerStyle={{
+                    marginTop: 150,
+                }}
+                value="Register to comment"
+                onPress={() => navigation.navigate("Register")}
+            />
         </View>
         )
         } else {
