@@ -18,8 +18,10 @@ export default function CommentsScreen({ navigation }){
 
     const sendIcon = <Icon name="paper-plane-o" size={20} 
                         onPress={() => {
-                            dispatch(sendNewComment(party.id, newComment))
-                            setNewComment("")}}
+                                if(newComment !== ""){
+                                dispatch(sendNewComment(party.id, newComment))
+                                setNewComment("")
+                            }}}
                         />
 
     const display = () => {
@@ -64,6 +66,14 @@ export default function CommentsScreen({ navigation }){
         }
     }
 
+    function errorDisplay(){
+        if(newComment === ""){
+            return true
+        } else {
+            return false
+        }
+    }
+
     return (
         <View
             style={custom.input}>
@@ -77,6 +87,9 @@ export default function CommentsScreen({ navigation }){
                 leftIcon={{ type: 'font-awesome', name: 'comment-o', size: 20 }}
                 rightIcon={sendIcon}
                 onChangeText={(value) => setNewComment(value)}
+                renderErrorMessage={newComment === "" ?true :false}
+                errorMessage="Please Enter Thoughts."
+                errorStyle={{ color: "red"}}
                 />
             </View>
         </View>
