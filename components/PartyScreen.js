@@ -17,7 +17,7 @@ export default function PartyScreen({ navigation }){
 
     function linkTicket(){
         if(details.ticketLink !== null)
-        Linking.openURL(`${details.ticketLink}`)
+        Linking.openURL(details.ticketLink)
     }
 
     function ticketImage(){
@@ -172,13 +172,13 @@ export default function PartyScreen({ navigation }){
                     `}
                 </Text>
                 <Text
-                    style={custom.textHead}>
+                    style={custom.textHead}
+                    onPress={() => linkTicket()}>
                     Tickets:
                 </Text>
                 <Image
                     source={ticketImage()}
                     style={custom.image}
-                    onPress={() => linkTicket()}
                 />
                 </View>
             )
