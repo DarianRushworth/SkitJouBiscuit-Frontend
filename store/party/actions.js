@@ -24,7 +24,6 @@ function setNewComment(data){
 }
 
 function setStatus(data){
-    console.log("data test", data)
     return {
         type: "SET_STATUS",
         payload: data,
