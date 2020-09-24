@@ -1,14 +1,14 @@
 import React, { useState } from "react"
 import { Text, View, ScrollView } from "react-native"
 import { useSelector, useDispatch } from "react-redux"
-import { Card, Input } from "react-native-elements"
+import { Card, Input, Badge } from "react-native-elements"
 import Icon from "react-native-vector-icons/FontAwesome"
 
 import { selectComments, selectDetails } from "../store/party/selectors"
 import { sendNewComment } from "../store/party/actions"
 import { styles } from "../StyledComponents/commentsScreen"
 
-export default function CommentsScreen(){
+export default function CommentsScreen({ navigation }){
     const dispatch = useDispatch()
     const [newComment, setNewComment ] = useState("")
     const comments = useSelector(selectComments)
@@ -18,17 +18,28 @@ export default function CommentsScreen(){
 
     const sendIcon = <Icon name="paper-plane-o" size={20} 
                         onPress={() => {
-                            dispatch(sendNewComment(party.id, newComment))
-                            setNewComment("")}}
+                                if(newComment !== ""){
+                                dispatch(sendNewComment(party.id, newComment))
+                                setNewComment("")
+                            }}}
                         />
 
     const display = () => {
         if(comments.length === 0){
         return (
         <View>
-            <Text>
-                Comments here!
-            </Text>
+            <Badge
+                status="warning"
+                badgeStyle={{
+                    width: 150,
+                    height: 50,
+                }}
+                containerStyle={{
+                    marginTop: 150,
+                }}
+                value="Register to comment"
+                onPress={() => navigation.navigate("Register")}
+            />
         </View>
         )
         } else {
@@ -55,6 +66,14 @@ export default function CommentsScreen(){
         }
     }
 
+    function errorDisplay(){
+        if(newComment === ""){
+            return true
+        } else {
+            return false
+        }
+    }
+
     return (
         <View
             style={custom.input}>
@@ -68,6 +87,9 @@ export default function CommentsScreen(){
                 leftIcon={{ type: 'font-awesome', name: 'comment-o', size: 20 }}
                 rightIcon={sendIcon}
                 onChangeText={(value) => setNewComment(value)}
+                renderErrorMessage={newComment === "" ?true :false}
+                errorMessage="Please Enter Thoughts."
+                errorStyle={{ color: "red"}}
                 />
             </View>
         </View>
