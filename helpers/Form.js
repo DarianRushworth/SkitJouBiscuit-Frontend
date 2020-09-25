@@ -71,6 +71,7 @@ export const Form = ({fields}) => {
             key={key}
             style={{
                 justifyContent: "center",
+                alignItems: "center",
           }}>
           <Text
             style={custom.text}>
@@ -135,7 +136,8 @@ export const Form = ({fields}) => {
     }
     
   return (
-      <View>
+      <View
+        style={custom.container}>
           {displayForm}
           <View
             style={custom.button}>

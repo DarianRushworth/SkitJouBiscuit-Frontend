@@ -91,13 +91,6 @@ export default function ProfileScreen(){
                                 }
                             }} />
                         <TouchableHighlight
-                            onPress={() => console.log("dispatch here")}>
-                            <Text
-                                style={custom.modalText}>
-                                Update
-                            </Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight
                             onPress={() => setModalForm(false)}>
                             <Text
                                 style={custom.modalText}>
