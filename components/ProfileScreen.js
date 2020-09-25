@@ -27,6 +27,7 @@ export default function ProfileScreen(){
             dispatch(profileStatus())
             console.log("going", userStatus)
         } else if(data === "interested"){
+            setModalMaybe(true)
             dispatch(profileStatus())
             console.log("interested")
         }
@@ -172,6 +173,32 @@ export default function ProfileScreen(){
                         </Card>
                         <TouchableHighlight
                             onPress={() => setModalAttending(false)}>
+                            <Text
+                                style={custom.modalText}>
+                                Close
+                            </Text>
+                        </TouchableHighlight>
+                    </View>
+                </Modal>
+            </View>
+            <View
+                style={custom.modalView}>
+                <Modal
+                    animationType="fade"
+                    transparent={true}
+                    visible={modalMaybe}
+                >
+                    <View
+                        style={custom.modalView2}>
+                        <Card>
+                            <Card.Title>
+                                Parties Interested In:
+                            </Card.Title>
+                            <Card.Divider />
+                            {statusChecker("maybe")}
+                        </Card>
+                        <TouchableHighlight
+                            onPress={() => setModalMaybe(false)}>
                             <Text
                                 style={custom.modalText}>
                                 Close
