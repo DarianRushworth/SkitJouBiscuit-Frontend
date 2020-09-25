@@ -1,4 +1,4 @@
-# Skit Jou Biscuit
+<strong color="tomato"> Skit Jou Biscuit </strong>
 
 ### Technologies Used:
 |React  |Redux  |Axios  |JWTs  |PostgresQL  |Express  |NodeJS  |
