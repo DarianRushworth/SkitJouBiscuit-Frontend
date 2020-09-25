@@ -43,6 +43,24 @@ function setNewStatus(data){
     }
 }
 
+export function profileStatus(){
+    return async(dispatch, getState) => {
+        try{
+            const token = await AsyncStorage.getItem("token")
+            const userStatus = await axios.get(`${API_URL}/parties/profile/favored`,{
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            
+            dispatch(setStatus(userStatus.data.status))
+
+        } catch(error){
+            console.log(error.message)
+        }
+    }
+}
+
 export function newPartyStatus(id, data){
     return async(dispatch, getState) => {
         try{

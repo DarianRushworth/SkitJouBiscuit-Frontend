@@ -12,6 +12,24 @@ function setUser(data){
 export function sendUserInfo(info){
     return async(dispatch, getState) => {
         try{
+            const tokenNeeded = await AsyncStorage.getItem("token")
+            const stateToken = getState().User.token
+
+            if(tokenNeeded !== null && stateToken === tokenNeeded){
+                const newInfo = await axios.patch(`${API_URL}/user`,{
+                    fullName: info.fullName,
+                    email: info.email,
+                    favoriteArtist: info.favoriteArtist,
+                    isEventOwner: JSON.stringify(info.isEventOwner) === "false" ?"true" :"false",
+                },{
+                    headers: {
+                        Authorization: `Bearer ${tokenNeeded}`
+                    }
+                })
+
+                dispatch(setUser(newInfo.data))
+                
+            } else {
             const registerInfo = info.fullName
                                 ? await axios.post(`${API_URL}/signup`,{
                                     fullName: info.fullName,
@@ -24,8 +42,6 @@ export function sendUserInfo(info){
                                     email: info.email,
                                     password: info.password,
                                 })
-                                
-            const tokenNeeded = await AsyncStorage.getItem("token")
             
             if(tokenNeeded !== null && tokenNeeded === registerInfo.data.token){
                 dispatch(setUser(registerInfo.data))
@@ -39,6 +55,7 @@ export function sendUserInfo(info){
                 const addToken = await AsyncStorage.setItem("token", registerInfo.data.token)
                 dispatch(setUser(registerInfo.data))
             }
+        }
 
         } catch(error){
             console.log(error.message)

@@ -9,18 +9,22 @@ export const styles = StyleSheet.create({
         fontSize: 20,
     },
     button: {
-        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
         width: 80,
-        marginLeft: 140,
     },
     checkbox: {
         width: 100,
-        alignContent: "center",
-        marginLeft: 125,
+        justifyContent: "center",
+        textAlign: "center",
     },
     validation : {
         textAlign: "center",
         fontSize: 12,
         color: "red",
+    },
+    container: {
+        justifyContent: "center",
+        alignItems: "center",
     }
 })
