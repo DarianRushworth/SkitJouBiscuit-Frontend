@@ -36,7 +36,7 @@ export default function ProfileScreen(){
     function avatarDisplay(data){
         return (
             <Avatar
-                size="medium"
+                size="large"
                 rounded
                 title={data.title}
                 containerStyle={data.style}

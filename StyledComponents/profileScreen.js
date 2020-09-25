@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
         marginLeft: 40,
     },
     avatarText: {
-        fontSize: 10,
+        fontSize: 15,
     },
     modalView: {
         flex: 1,
