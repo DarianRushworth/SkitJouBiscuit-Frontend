@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { View, Text, Modal, TouchableHighlight, Image } from "react-native"
+import { View, Text, Modal, TouchableHighlight, Image, ScrollView } from "react-native"
 import { Avatar, Card } from "react-native-elements"
 import { useSelector, useDispatch } from "react-redux"
 
@@ -126,14 +126,12 @@ export default function ProfileScreen(){
                             fields={{
                                 fullName: {
                                     label: "Full-Name",
-                                    validators: [contentValidator],
                                 },
                                 favoriteArtist: {
                                     label: "Favorite Artist",
                                 },
                                 email: {
                                     label: "Email",
-                                    validators: [contentValidator],
                                     inputProps: {
                                         keyboardType: "email-address",
                                     },
