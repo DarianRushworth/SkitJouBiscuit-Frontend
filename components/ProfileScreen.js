@@ -1,27 +1,33 @@
 import React, { useState } from "react"
-import { View, Text, Modal, TouchableHighlight } from "react-native"
-import { Avatar } from "react-native-elements"
-import { useSelector } from "react-redux"
+import { View, Text, Modal, TouchableHighlight, Image } from "react-native"
+import { Avatar, Card } from "react-native-elements"
+import { useSelector, useDispatch } from "react-redux"
 
 import { selectUser } from "../store/user/selectors"
+import { profileStatus } from "../store/party/actions"
+import { selectStatusData } from "../store/party/selectors"
 import { styles } from "../StyledComponents/profileScreen"
 import  { Form } from "../helpers/Form"
 import { contentValidator } from "../helpers/Validations"
 
 export default function ProfileScreen(){
+    const dispatch = useDispatch()
     const [modalForm, setModalForm] = useState(false)
     const [modalAttending, setModalAttending] = useState(false)
     const [modalMaybe, setModalMaybe] = useState(false)
     const user = useSelector(selectUser)
+    const userStatus = useSelector(selectStatusData)
     const custom = styles
 
     function avatarFunction(data){
         if(data === "form"){
-            console.log(modalForm)
             setModalForm(true)
         } else if(data === "going"){
-            console.log("going")
+            setModalAttending(true)
+            dispatch(profileStatus())
+            console.log("going", userStatus)
         } else if(data === "interested"){
+            dispatch(profileStatus())
             console.log("interested")
         }
     }
@@ -40,6 +46,54 @@ export default function ProfileScreen(){
                 }
             />
         )
+    }
+
+    function statusChecker(data){
+        const goingStatus = userStatus.users.filter(stat => stat.status === "going")
+
+        const interestedStatus = userStatus.users.filter(stat => stat.status === "interested")
+
+        if(data === "attending"){
+            return(
+                goingStatus.map(stat => {
+                    return (
+                        <View
+                            style={custom.cardContainer}
+                            key={stat.id}>
+                            <Image
+                                resizeMode="cover"
+                                style={custom.cardImage}
+                                source={{ uri: stat.party.image}}
+                            />
+                            <Text
+                                style={custom.cardText}>
+                                {stat.party.eventName}
+                            </Text>
+                        </View>
+                    )
+                })
+            )
+        } else if(data === "maybe"){
+            return (
+                interestedStatus.map(stat => {
+                    return (
+                        <View
+                            style={custom.cardContainer}
+                            key={stat.id}>
+                            <Image
+                                resizeMode="cover"
+                                style={custom.cardImage}
+                                source={{ uri: stat.party.image}}
+                            />
+                            <Text
+                                style={custom.cardText}>
+                                {stat.party.eventName}
+                            </Text>
+                        </View>
+                    )
+                })
+            )
+        }
     }
 
     return (
@@ -92,6 +146,32 @@ export default function ProfileScreen(){
                             }} />
                         <TouchableHighlight
                             onPress={() => setModalForm(false)}>
+                            <Text
+                                style={custom.modalText}>
+                                Close
+                            </Text>
+                        </TouchableHighlight>
+                    </View>
+                </Modal>
+            </View>
+            <View
+                style={custom.modalView}>
+                <Modal
+                    animationType="fade"
+                    transparent={true}
+                    visible={modalAttending}
+                >
+                    <View
+                        style={custom.modalView2}>
+                        <Card>
+                            <Card.Title>
+                                Parties Attending:
+                            </Card.Title>
+                            <Card.Divider />
+                            {statusChecker("attending")}
+                        </Card>
+                        <TouchableHighlight
+                            onPress={() => setModalAttending(false)}>
                             <Text
                                 style={custom.modalText}>
                                 Close

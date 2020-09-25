@@ -60,5 +60,18 @@ export const styles = StyleSheet.create({
         color: "tomato",
         fontWeight: "bold",
         textAlign: "center",
+    },
+    cardImage: {
+        height: 30,
+        width: 30,
+        marginRight: 10,
+    },
+    cardContainer: {
+        margin: 15,
+        flexDirection: "row"
+    },
+    cardText: {
+        color: "tomato",
+        fontWeight: "bold",
     }
 })
