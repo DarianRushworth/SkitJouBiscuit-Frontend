@@ -52,7 +52,13 @@ function PartyScreenStack(){
 function RegisterTabs(){
   return (
     <TopTab.Navigator
-      initialRouteName="Login">
+      initialRouteName="Login"
+      tabBarOptions={{
+        style: { backgroundColor: "#003152"},
+        activeTintColor: "tomato",
+        inactiveTintColor: "gray",
+
+      }}>
       <TopTab.Screen 
         name="Login" 
         component={LoginScreen} />
