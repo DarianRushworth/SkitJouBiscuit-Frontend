@@ -1,25 +1,23 @@
 import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: "column",
-        backgroundColor: "#B5C9D5",
-    },
     image: {
-        flex: 3,
-        resizeMode: "cover",
+        resizeMode: "contain",
         justifyContent: "center",
+        width: 350,
+        height: 300,
     },
-    textContainer : {
-        flex: 2,
-        flexDirection: "column"
+    tileImage: {
+        marginTop: 30,
+        width: 300,
+        height: 230,
+        resizeMode: "cover",
     },
-    text: {
-        marginTop: 100,
+    tileTitle: {
         color: "tomato",
-        textAlign: "center",
-        fontSize: 30,
         fontWeight: "bold",
+    },
+    container: {
+        backgroundColor: "#B5C9D5",
     }
 })
