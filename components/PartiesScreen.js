@@ -1,5 +1,6 @@
 import React from "react"
 import { View, FlatList, Text, Image, TouchableOpacity } from "react-native"
+import Flag from "react-native-flags"
 import { Card } from "react-native-elements"
 import { useDispatch, useSelector } from "react-redux"
 import AsyncStorage from "@react-native-community/async-storage"
@@ -26,10 +27,16 @@ export default function PartiesScreen({route, navigation}){
             <Card>
             <View
                 style={custom.cardContainer}>
+                <View>
                 <Card.Title
                     style={custom.textTitle}>
                     {item.eventName}
                 </Card.Title>
+                <Flag
+                    code={item.country}
+                    size={32}
+                />
+                </View>
                 <Card
                     containerStyle={custom.cardDate}>
                     <Card.Title>
