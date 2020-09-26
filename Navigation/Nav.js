@@ -22,7 +22,17 @@ const PartyStack = createStackNavigator()
 function PartyScreenStack(){
   return (
     <PartyStack.Navigator>
-      <PartyStack.Screen name="Parties" component={PartiesScreen} />
+      <PartyStack.Screen 
+        name="Parties" 
+        component={PartiesScreen} 
+        options={{
+          title: "Party List", 
+          headerStyle: {
+            backgroundColor: "#003152",
+          },
+          headerTitleStyle: {
+            color: "tomato",
+          }}} />
       <PartyStack.Screen name="PartyDetails" component={PartyTabs} />
     </PartyStack.Navigator>
   )
@@ -79,6 +89,8 @@ return (
         tabBarOptions={{
           activeTintColor: "tomato",
           inactiveTintColor: "gray",
+          activeBackgroundColor: "#B5C9D5",
+          inactiveBackgroundColor: "#003152"
         }}>
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Parties" component={PartyScreenStack} />

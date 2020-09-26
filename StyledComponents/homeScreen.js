@@ -2,10 +2,10 @@ import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
     image: {
-        resizeMode: "contain",
+        resizeMode: "cover",
         justifyContent: "center",
-        width: 350,
-        height: 300,
+        width: 360,
+        height: 310,
     },
     tileImage: {
         marginTop: 30,
