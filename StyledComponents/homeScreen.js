@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     tileImage: {
         marginTop: 30,
         width: 300,
-        height: 230,
+        height: 235,
         resizeMode: "cover",
     },
     tileTitle: {

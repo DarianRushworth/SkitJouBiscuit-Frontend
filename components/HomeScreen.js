@@ -8,7 +8,7 @@ import { selectParties } from "../store/parties/selectors"
 
 import { styles } from "../StyledComponents/homeScreen"
 
-const imageUrl = { uri:"https://media.tenor.com/images/f41cc28da57fb5335a54f3954c42e3e1/tenor.gif"}
+const imageUrl = { uri:"https://i.pinimg.com/originals/d2/02/95/d202954b8c118a92378e3e01dd5562d1.gif"}
 
 export default function HomeScreen({route, navigation}){
     const [fetched, setFetched] = useState(true)
