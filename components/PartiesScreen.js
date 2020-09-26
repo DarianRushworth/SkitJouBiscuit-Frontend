@@ -1,5 +1,7 @@
 import React from "react"
 import { View, FlatList, Text, Image, TouchableOpacity } from "react-native"
+import Flag from "react-native-flags"
+import { Card } from "react-native-elements"
 import { useDispatch, useSelector } from "react-redux"
 import AsyncStorage from "@react-native-community/async-storage"
 
@@ -22,22 +24,44 @@ export default function PartiesScreen({route, navigation}){
             style={custom.container}>
         <TouchableOpacity
             onPress={() => moreDetails(item.id)}>
-            <Image
-                style={custom.image}
-                source={{uri:`${item.image}`}}
-                resizeMethod={"resize"}
-            />
-            <View 
-                style={custom.text}>
-                <Text
+            <Card
+                containerStyle={custom.card}>
+            <View
+                style={custom.cardContainer}>
+                <View>
+                <Card.Title
                     style={custom.textTitle}>
                     {item.eventName}
-                </Text>
-                <Text>
-                    {`${item.month}, ${item.duration}
-                    ${item.country}`}
-                </Text>
-            </View>
+                </Card.Title>
+                <Flag
+                    code={item.country}
+                    size={32}
+                />
+                </View>
+                <Card
+                    containerStyle={custom.cardDate}>
+                    <View
+                        style={custom.cardContainer2}>
+                    <Card.Title
+                        style={custom.cardTitle}>
+                        {item.month}
+                    </Card.Title>
+                    <Card.Divider />
+                        <Text
+                            style={custom.cardText}>
+                            {item.duration}
+                        </Text>
+                    </View>
+                </Card>
+                </View>
+                <Card.Divider />
+                <View>
+                    <Image 
+                        style={custom.image}
+                        resizeMode="cover"
+                        source={{ uri: `${item.image}`}} />
+                </View>
+            </Card>
         </TouchableOpacity>
         </View>
     )
