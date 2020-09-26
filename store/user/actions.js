@@ -9,6 +9,25 @@ function setUser(data){
     }
 }
 
+function removeUser(){
+    return {
+        type: "REMOVE_USER",
+    }
+}
+
+export function logOut(){
+    return async(dispatch, getState) => {
+        try{
+            const destroyToken = await AsyncStorage.clear()
+
+            dispatch(removeUser())
+
+        } catch(error){
+            console.log(error.message)
+        }
+    }
+}
+
 export function sendUserInfo(info){
     return async(dispatch, getState) => {
         try{

@@ -1,16 +1,17 @@
 import React, { useState } from "react"
 import { View, Text, Modal, TouchableHighlight, Image, ScrollView } from "react-native"
-import { Avatar, Card } from "react-native-elements"
+import { Avatar, Card, Badge } from "react-native-elements"
 import { useSelector, useDispatch } from "react-redux"
 
 import { selectUser } from "../store/user/selectors"
+import { logOut } from "../store/user/actions"
 import { profileStatus } from "../store/party/actions"
 import { selectStatusData } from "../store/party/selectors"
 import { styles } from "../StyledComponents/profileScreen"
 import  { Form } from "../helpers/Form"
 
 
-export default function ProfileScreen(){
+export default function ProfileScreen({ navigation }){
     const dispatch = useDispatch()
     const [modalForm, setModalForm] = useState(false)
     const [modalAttending, setModalAttending] = useState(false)
@@ -18,6 +19,19 @@ export default function ProfileScreen(){
     const user = useSelector(selectUser)
     const userStatus = useSelector(selectStatusData)
     const custom = styles
+
+    function avatarDisplay(data){
+        return (
+            <Avatar
+                size="large"
+                rounded
+                title={data.title}
+                containerStyle={data.style}
+                titleStyle={custom.avatarText}
+                onPress={() => avatarFunction(data.function)}
+            />
+        )
+    }
 
     function avatarFunction(data){
         if(data === "form"){
@@ -31,19 +45,6 @@ export default function ProfileScreen(){
             dispatch(profileStatus())
             console.log("interested")
         }
-    }
-
-    function avatarDisplay(data){
-        return (
-            <Avatar
-                size="large"
-                rounded
-                title={data.title}
-                containerStyle={data.style}
-                titleStyle={custom.avatarText}
-                onPress={() => avatarFunction(data.function)}
-            />
-        )
     }
 
     function statusChecker(data){
@@ -99,22 +100,42 @@ export default function ProfileScreen(){
             style={custom.container}>
             <View
                 style={custom.fadingContainer}>
+                <Badge
+                    value="Log-Out"
+                    status="primary"
+                    badgeStyle={{
+                        width: 100,
+                        height: 30,
+                    }}
+                    onPress={() => {
+                        dispatch(logOut())
+                        navigation.navigate("Home")
+                    }}
+                />
                 <Text
                     style={custom.fadingText}>
                     {user.fullName}
                 </Text>
             </View>
+            <Card
+                containerStyle={custom.mainCard}>
+                <Card.Title
+                    style={custom.mainText}>
+                    Click To See:
+                </Card.Title>
+                <Card.Divider />
             <View
                 style={custom.avatarContainer}>
                 {avatarDisplay({title: "Update", function: "form", style: custom.avatar1})}
                 {avatarDisplay({title: "Attending", function: "going", style: custom.avatar2})}
                 {avatarDisplay({title: "Maybes", function: "interested", style: custom.avatar3})}
             </View>
+            </Card>
             <View
                 style={custom.modalView}>
                 <Modal
                     animationType="fade"
-                    transparent={false}
+                    transparent={true}
                     visible={modalForm}
                 >
                     <View
@@ -161,7 +182,8 @@ export default function ProfileScreen(){
                         style={custom.modalView2}>
                         <Card
                             containerStyle={custom.cardBackground}>
-                            <Card.Title>
+                            <Card.Title
+                                style={custom.mainText}>
                                 Parties Attending:
                             </Card.Title>
                             <Card.Divider />
@@ -188,7 +210,8 @@ export default function ProfileScreen(){
                         style={custom.modalView2}>
                         <Card
                             containerStyle={custom.cardBackground}>
-                            <Card.Title>
+                            <Card.Title
+                                style={custom.mainText}>
                                 Parties Interested In:
                             </Card.Title>
                             <Card.Divider />

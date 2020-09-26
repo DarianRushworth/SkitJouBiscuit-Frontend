@@ -5,6 +5,8 @@ const initialState = {
 
 export default function userReducer(state = initialState, action){
     switch(action.type){
+        case "REMOVE_USER":
+            return initialState
         case "SET_USER":
             return {
                 ...state,

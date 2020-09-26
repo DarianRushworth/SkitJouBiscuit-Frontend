@@ -4,12 +4,16 @@ export const styles = StyleSheet.create({
     container: {
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 150,
+        backgroundColor: "#B5C9D5",
+        flex: 1,
+        flexDirection: "column",
     },
     fadingContainer: {
         paddingVertical: 8,
         paddingHorizontal: 16,
-        backgroundColor: "#ef3100"
+        backgroundColor: "#ef3100",
+        flex: 2,
+        flexDirection: "column-reverse"
     },
     fadingText: {
         fontSize: 28,
@@ -20,7 +24,7 @@ export const styles = StyleSheet.create({
     avatarContainer: {
         flex: 1,
         flexDirection: "row",
-        marginTop: 50,
+        marginTop: 25,
     },
     avatar1: {
         backgroundColor: "tomato",
@@ -76,6 +80,14 @@ export const styles = StyleSheet.create({
         fontWeight: "bold",
     },
     cardBackground: {
-        backgroundColor: "#B5C9D5",
+        backgroundColor: "#003152",
+    },
+    mainCard: {
+        backgroundColor: "#003152",
+        flex: 3,
+    },
+    mainText: {
+        color: "white",
+        fontWeight: "bold",
     }
 })
