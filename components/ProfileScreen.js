@@ -8,7 +8,7 @@ import { profileStatus } from "../store/party/actions"
 import { selectStatusData } from "../store/party/selectors"
 import { styles } from "../StyledComponents/profileScreen"
 import  { Form } from "../helpers/Form"
-import { contentValidator } from "../helpers/Validations"
+
 
 export default function ProfileScreen(){
     const dispatch = useDispatch()
@@ -41,10 +41,7 @@ export default function ProfileScreen(){
                 title={data.title}
                 containerStyle={data.style}
                 titleStyle={custom.avatarText}
-                onPress={() => {
-                    avatarFunction(data.function)
-                    }
-                }
+                onPress={() => avatarFunction(data.function)}
             />
         )
     }
@@ -117,7 +114,7 @@ export default function ProfileScreen(){
                 style={custom.modalView}>
                 <Modal
                     animationType="fade"
-                    transparent={true}
+                    transparent={false}
                     visible={modalForm}
                 >
                     <View
@@ -162,7 +159,8 @@ export default function ProfileScreen(){
                 >
                     <View
                         style={custom.modalView2}>
-                        <Card>
+                        <Card
+                            containerStyle={custom.cardBackground}>
                             <Card.Title>
                                 Parties Attending:
                             </Card.Title>
@@ -188,7 +186,8 @@ export default function ProfileScreen(){
                 >
                     <View
                         style={custom.modalView2}>
-                        <Card>
+                        <Card
+                            containerStyle={custom.cardBackground}>
                             <Card.Title>
                                 Parties Interested In:
                             </Card.Title>

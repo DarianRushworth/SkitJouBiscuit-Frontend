@@ -5,7 +5,6 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         marginTop: 150,
-        backgroundColor: "#B5C9D5",
     },
     fadingContainer: {
         paddingVertical: 8,
@@ -41,10 +40,11 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: "#B5C9D5"
     },
     modalView2: {
         margin: 20,
-        backgroundColor: "white",
+        backgroundColor: "#B5C9D5",
         borderRadius: 30,
         padding: 35,
         alignItems: "center",
@@ -69,10 +69,13 @@ export const styles = StyleSheet.create({
     },
     cardContainer: {
         margin: 15,
-        flexDirection: "row"
+        flexDirection: "row",
     },
     cardText: {
         color: "tomato",
         fontWeight: "bold",
+    },
+    cardBackground: {
+        backgroundColor: "#B5C9D5",
     }
 })
