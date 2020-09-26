@@ -24,7 +24,8 @@ export default function PartiesScreen({route, navigation}){
             style={custom.container}>
         <TouchableOpacity
             onPress={() => moreDetails(item.id)}>
-            <Card>
+            <Card
+                containerStyle={custom.card}>
             <View
                 style={custom.cardContainer}>
                 <View>
@@ -39,11 +40,13 @@ export default function PartiesScreen({route, navigation}){
                 </View>
                 <Card
                     containerStyle={custom.cardDate}>
-                    <Card.Title>
+                    <View
+                        style={custom.cardContainer2}>
+                    <Card.Title
+                        style={custom.cardTitle}>
                         {item.month}
                     </Card.Title>
                     <Card.Divider />
-                    <View>
                         <Text
                             style={custom.cardText}>
                             {item.duration}

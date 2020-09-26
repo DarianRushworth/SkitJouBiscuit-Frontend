@@ -20,21 +20,35 @@ export const styles = StyleSheet.create({
     textTitle: {
         fontSize: 25,
         fontWeight: "bold",
-        color: "tomato",
+        color: "white",
         textAlign: "left",
         width: 150,
     },
     cardDate: {
-        marginTop: 1,
-        width: 150,
-        height: 100,
+        marginTop: 10,
+        width: 115,
+        height: 80,
         backgroundColor: "tomato",
     },
     cardContainer: {
         flexDirection: "row",
+        width: 300,
+    },
+    cardContainer2: {
+        width: 90,
     },
     cardText: {
         color: "white",
-        textAlign: "center",
+        textAlign: "left",
+        fontSize: 10,
+    },
+    cardTitle: {
+        color: "white",
+        fontWeight: "bold",
+        fontSize: 12,
+        textAlign: "left",
+    },
+    card: {
+        backgroundColor: "#748A9E",
     }
 })
