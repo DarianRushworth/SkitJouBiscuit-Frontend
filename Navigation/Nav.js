@@ -1,6 +1,6 @@
 import * as React from "react"
 import { NavigationContainer } from "@react-navigation/native"
-import { createStackNavigator } from "@react-navigation/stack"
+import { createStackNavigator, HeaderTitle } from "@react-navigation/stack"
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { Ionicons } from "@expo/vector-icons"
@@ -33,7 +33,18 @@ function PartyScreenStack(){
           headerTitleStyle: {
             color: "tomato",
           }}} />
-      <PartyStack.Screen name="PartyDetails" component={PartyTabs} />
+      <PartyStack.Screen 
+        name="PartyDetails" 
+        component={PartyTabs} 
+        options={{
+          title: "Party Info",
+          headerStyle: {
+            backgroundColor: "#003152",
+          },
+          headerTitleStyle: {
+            color: "tomato",
+          }
+        }} />
     </PartyStack.Navigator>
   )
 }
@@ -52,8 +63,16 @@ function RegisterTabs(){
 
 function PartyTabs(){
   return (
-    <TopTab.Navigator>
-      <TopTab.Screen name="Details" component={PartyScreen} />
+    <TopTab.Navigator
+      initialRouteName="Details"
+      tabBarOptions={{
+        activeTintColor: "tomato",
+        inactiveTintColor: "gray",
+      }}>
+      <TopTab.Screen 
+        name="Details" 
+        component={PartyScreen} 
+      />
       <TopTab.Screen name="Comments" component={CommentsScreen} />
     </TopTab.Navigator>
   )
