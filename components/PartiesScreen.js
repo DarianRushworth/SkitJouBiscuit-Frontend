@@ -1,5 +1,6 @@
 import React from "react"
 import { View, FlatList, Text, Image, TouchableOpacity } from "react-native"
+import { Card } from "react-native-elements"
 import { useDispatch, useSelector } from "react-redux"
 import AsyncStorage from "@react-native-community/async-storage"
 
@@ -22,22 +23,35 @@ export default function PartiesScreen({route, navigation}){
             style={custom.container}>
         <TouchableOpacity
             onPress={() => moreDetails(item.id)}>
-            <Image
-                style={custom.image}
-                source={{uri:`${item.image}`}}
-                resizeMethod={"resize"}
-            />
-            <View 
-                style={custom.text}>
-                <Text
+            <Card>
+            <View
+                style={custom.cardContainer}>
+                <Card.Title
                     style={custom.textTitle}>
                     {item.eventName}
-                </Text>
-                <Text>
-                    {`${item.month}, ${item.duration}
-                    ${item.country}`}
-                </Text>
-            </View>
+                </Card.Title>
+                <Card
+                    containerStyle={custom.cardDate}>
+                    <Card.Title>
+                        {item.month}
+                    </Card.Title>
+                    <Card.Divider />
+                    <View>
+                        <Text
+                            style={custom.cardText}>
+                            {item.duration}
+                        </Text>
+                    </View>
+                </Card>
+                </View>
+                <Card.Divider />
+                <View>
+                    <Image 
+                        style={custom.image}
+                        resizeMode="cover"
+                        source={{ uri: `${item.image}`}} />
+                </View>
+            </Card>
         </TouchableOpacity>
         </View>
     )
