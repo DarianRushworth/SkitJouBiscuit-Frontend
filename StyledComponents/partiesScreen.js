@@ -4,7 +4,8 @@ export const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
         flex: 1,
-        height: 200
+        height: 200,
+        backgroundColor: "#B5C9D5",
     },
     image: {
         width: 350,

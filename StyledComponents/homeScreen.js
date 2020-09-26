@@ -4,6 +4,7 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: "column",
+        backgroundColor: "#B5C9D5",
     },
     image: {
         flex: 3,
@@ -20,10 +21,5 @@ export const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 30,
         fontWeight: "bold",
-    },
-    buttonContainer : {
-        flex: 0,
-        flexDirection: "column",
-        justifyContent: "center",
     }
 })

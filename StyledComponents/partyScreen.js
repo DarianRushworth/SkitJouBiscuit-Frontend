@@ -4,6 +4,7 @@ export const styles = StyleSheet.create({
     container: {
         alignItems: "center",
         justifyContent: "center",
+        backgroundColor: "#B5C9D5",
     },
     title: {
         fontSize: 30,

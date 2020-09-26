@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         marginTop: 150,
+        backgroundColor: "#B5C9D5",
     },
     fadingContainer: {
         paddingVertical: 8,
