@@ -1,6 +1,6 @@
 import * as React from "react"
 import { NavigationContainer } from "@react-navigation/native"
-import { createStackNavigator } from "@react-navigation/stack"
+import { createStackNavigator, HeaderTitle } from "@react-navigation/stack"
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { Ionicons } from "@expo/vector-icons"
@@ -22,8 +22,29 @@ const PartyStack = createStackNavigator()
 function PartyScreenStack(){
   return (
     <PartyStack.Navigator>
-      <PartyStack.Screen name="Parties" component={PartiesScreen} />
-      <PartyStack.Screen name="PartyDetails" component={PartyTabs} />
+      <PartyStack.Screen 
+        name="Parties" 
+        component={PartiesScreen} 
+        options={{
+          title: "Party List", 
+          headerStyle: {
+            backgroundColor: "#003152",
+          },
+          headerTitleStyle: {
+            color: "tomato",
+          }}} />
+      <PartyStack.Screen 
+        name="PartyDetails" 
+        component={PartyTabs} 
+        options={{
+          title: "Party Info",
+          headerStyle: {
+            backgroundColor: "#003152",
+          },
+          headerTitleStyle: {
+            color: "tomato",
+          }
+        }} />
     </PartyStack.Navigator>
   )
 }
@@ -42,8 +63,16 @@ function RegisterTabs(){
 
 function PartyTabs(){
   return (
-    <TopTab.Navigator>
-      <TopTab.Screen name="Details" component={PartyScreen} />
+    <TopTab.Navigator
+      initialRouteName="Details"
+      tabBarOptions={{
+        activeTintColor: "tomato",
+        inactiveTintColor: "gray",
+      }}>
+      <TopTab.Screen 
+        name="Details" 
+        component={PartyScreen} 
+      />
       <TopTab.Screen name="Comments" component={CommentsScreen} />
     </TopTab.Navigator>
   )
@@ -79,6 +108,8 @@ return (
         tabBarOptions={{
           activeTintColor: "tomato",
           inactiveTintColor: "gray",
+          activeBackgroundColor: "#B5C9D5",
+          inactiveBackgroundColor: "#003152"
         }}>
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Parties" component={PartyScreenStack} />
