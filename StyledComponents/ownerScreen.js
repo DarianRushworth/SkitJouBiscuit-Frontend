@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
         paddingVertical: 8,
         paddingHorizontal: 16,
         backgroundColor: "#ef3100",
-        flex: 2,
+        flex: 5,
         flexDirection: "column-reverse"
     },
     fadingText: {
@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
     avatarContainer: {
         flex: 1,
         flexDirection: "row",
-        marginTop: 25,
+        marginTop: 10,
     },
     avatar1: {
         backgroundColor: "tomato",
@@ -84,10 +84,15 @@ export const styles = StyleSheet.create({
     },
     mainCard: {
         backgroundColor: "#003152",
-        flex: 3,
+        flex: 7,
+        marginTop: 60,
     },
     mainText: {
         color: "white",
         fontWeight: "bold",
+    },
+    eventCard: {
+        backgroundColor: "#003152",
+        flex: 7,
     }
 })

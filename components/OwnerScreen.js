@@ -7,11 +7,11 @@ import { selectUser } from "../store/user/selectors"
 import { logOut } from "../store/user/actions"
 import { profileStatus } from "../store/party/actions"
 import { selectStatusData } from "../store/party/selectors"
-import { styles } from "../StyledComponents/profileScreen"
-import { Form } from "../helpers/Form"
+import { styles } from "../StyledComponents/ownerScreen"
+import  { Form } from "../helpers/Form"
 
 
-export default function ProfileScreen({ navigation }){
+export default function OwnerScreen({ navigation }){
     const dispatch = useDispatch()
     const [modalForm, setModalForm] = useState(false)
     const [modalAttending, setModalAttending] = useState(false)
@@ -29,6 +29,12 @@ export default function ProfileScreen({ navigation }){
         } else if(data === "interested"){
             setModalMaybe(true)
             dispatch(profileStatus())
+        } else if(data === "new" && user.isEventOwner){
+            console.log("new")
+        } else if(data === "remove" && user.isEventOwner){
+            console.log("remove")
+        } else if(data === "form2" && user.isEventOwner){
+            console.log("Update")
         }
     }
 
@@ -93,6 +99,26 @@ export default function ProfileScreen({ navigation }){
         }
     }
 
+    function eventCard(){
+        console.log(user.isEventOwner)
+        if(user.isEventOwner){
+            return (
+                <Card
+                    containerStyle={custom.eventCard}>
+                    <Card.Title>
+                        Manage Party:
+                    </Card.Title>
+                    <Card.Divider />
+                    <View
+                        style={custom.avatarContainer}>
+                        {avatarDisplay({title: "Add", function: "new", style: custom.avatar1})}
+                        {avatarDisplay({title: "Delete", function: "remove", style: custom.avatar2})}
+                        {avatarDisplay({title: "Update", function: "form2", style: custom.avatar3})}
+                    </View>
+                </Card>
+            )
+        }
+    }
 
     return (
         <View
@@ -226,6 +252,7 @@ export default function ProfileScreen({ navigation }){
                     </View>
                 </Modal>
             </View>
+            {eventCard()}
         </View>
     )
 }

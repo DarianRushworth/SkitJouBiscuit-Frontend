@@ -13,7 +13,7 @@ import { detailFetcher } from "../store/party/actions"
 import { styles } from "../StyledComponents/partiesScreen"
 
 
-export default function PartiesScreen({route, navigation}){
+export default function PartiesScreen({ navigation }){
     const dispatch = useDispatch()
     const parties = useSelector(selectParties)
     const token = useSelector(selectToken)

@@ -1,6 +1,6 @@
 import * as React from "react"
 import { NavigationContainer } from "@react-navigation/native"
-import { createStackNavigator, HeaderTitle } from "@react-navigation/stack"
+import { createStackNavigator } from "@react-navigation/stack"
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { Ionicons } from "@expo/vector-icons"
@@ -13,7 +13,8 @@ import PartiesScreen from "../components/PartiesScreen"
 import PartyScreen from "../components/PartyScreen"
 import CommentsScreen from "../components/CommentsScreen"
 import ProfileScreen from "../components/ProfileScreen"
-import { selectToken } from "../store/user/selectors"
+import OwnerScreen from "../components/OwnerScreen"
+import { selectToken, selectUser } from "../store/user/selectors"
 
 const Tab = createBottomTabNavigator()
 const TopTab = createMaterialTopTabNavigator()
@@ -87,10 +88,18 @@ function PartyTabs(){
 
 export default function Nav(){
   const token = useSelector(selectToken)
+  const user = useSelector(selectUser)
   
-  const userTab = token === null
-                ? <Tab.Screen name="Register" component={RegisterTabs} />
-                : <Tab.Screen name="User" component={ProfileScreen} />
+  function userTab(){ 
+    if(token === null){
+      return <Tab.Screen name="Register" component={RegisterTabs} />
+    } else if(token !== null && user.isEventOwner){
+      return <Tab.Screen name="User" component={OwnerScreen} />
+    } else if(token !== null && !user.isEventOwner){
+      return <Tab.Screen name="User" component={ProfileScreen} />
+    }
+  }
+
 return (
     <NavigationContainer>
       <Tab.Navigator
@@ -119,7 +128,7 @@ return (
         }}>
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Parties" component={PartyScreenStack} />
-        {userTab}
+        {userTab()}
       </Tab.Navigator>
     </NavigationContainer>
 )
