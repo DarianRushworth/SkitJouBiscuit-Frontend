@@ -6,7 +6,11 @@ const initialState = {
 export default function userReducer(state = initialState, action){
     switch(action.type){
         case "REMOVE_USER":
-            return initialState
+            return {
+                ...state,
+                userData: initialState.userData,
+                token : initialState.token
+            }
         case "SET_USER":
             return {
                 ...state,
