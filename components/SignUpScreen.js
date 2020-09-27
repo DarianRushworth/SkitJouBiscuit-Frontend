@@ -25,38 +25,38 @@ export default function SignUpScreen({ navigation }){
                 source={image}
                 style={custom.image}
             />
-                <View>
-                    <Form 
-                        fields={{
-                            fullName: {
-                                label: "Full-Name",
-                                validators: [contentValidator],
+            <View>
+                <Form 
+                    fields={{
+                        fullName: {
+                            label: "Full-Name",
+                            validators: [contentValidator],
+                        },
+                        favoriteArtist: {
+                            label: "Favorite Artist",
+                        },
+                        email: {
+                            label: "Email",
+                            validators: [contentValidator],
+                            inputProps: {
+                                keyboardType: "email-address",
                             },
-                            favoriteArtist: {
-                                label: "Favorite Artist",
+                        },
+                        isEventOwner: {
+                            label: "Event Owner",
+                            inputProps: {
+                                checkbox: true,
                             },
-                            email: {
-                                label: "Email",
-                                validators: [contentValidator],
-                                inputProps: {
-                                    keyboardType: "email-address",
-                                },
-                            },
-                            isEventOwner: {
-                                label: "Event Owner",
-                                inputProps: {
-                                    checkbox: true,
-                                },
-                            },
-                            password: {
-                                label: "Password",
-                                validators: [lengthValidator],
-                                inputProps: {
-                                    secureTextEntry: true,
-                                }
+                        },
+                        password: {
+                            label: "Password",
+                            validators: [lengthValidator],
+                            inputProps: {
+                                secureTextEntry: true,
                             }
-                        }} />
-                </View>
+                        }
+                    }} />
+            </View>
         </ScrollView>
     )
 }

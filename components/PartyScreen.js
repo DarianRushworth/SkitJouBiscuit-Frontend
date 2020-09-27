@@ -152,7 +152,7 @@ export default function PartyScreen({ navigation }){
                 </Text>
                 <Text
                     style={custom.text}>
-                    {`${details.rules}`}
+                    {`${details.rules === null ?"TBA" :details.rules}`}
                 </Text>
                 <Text
                     style={custom.textHead}>

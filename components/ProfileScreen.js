@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { View, Text, Modal, TouchableHighlight, Image, ScrollView } from "react-native"
+import { View, Text, Modal, TouchableHighlight, Image } from "react-native"
 import { Avatar, Card, Badge } from "react-native-elements"
 import { useSelector, useDispatch } from "react-redux"
 
@@ -9,7 +9,6 @@ import { profileStatus } from "../store/party/actions"
 import { selectStatusData } from "../store/party/selectors"
 import { styles } from "../StyledComponents/profileScreen"
 import { Form } from "../helpers/Form"
-import OwnerScreen from "./OwnerScreen"
 
 
 export default function ProfileScreen({ navigation }){
@@ -27,11 +26,9 @@ export default function ProfileScreen({ navigation }){
         } else if(data === "going"){
             setModalAttending(true)
             dispatch(profileStatus())
-            console.log("going", userStatus)
         } else if(data === "interested"){
             setModalMaybe(true)
             dispatch(profileStatus())
-            console.log("interested")
         }
     }
 

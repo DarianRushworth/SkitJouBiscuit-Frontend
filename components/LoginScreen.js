@@ -15,33 +15,34 @@ export default function LoginScreen({ navigation }){
   if(token !== null){
     navigation.navigate("Home")
   }
-    const custom = styles
-    return (
-        <ScrollView
-            style={custom.container}>
-            <Image
-              source={image}
-              style={custom.image}
-            />
-                <View style={custom.textContainer}>
-                <Form
-                    fields={{
-                        email: {
-                          label: 'Email',
-                          validators: [contentValidator],
-                          inputProps: {
-                            keyboardType: 'email-address',
-                          },
+
+  const custom = styles
+  return (
+      <ScrollView
+          style={custom.container}>
+          <Image
+            source={image}
+            style={custom.image}
+          />
+            <View style={custom.textContainer}>
+              <Form
+                  fields={{
+                      email: {
+                        label: 'Email',
+                        validators: [contentValidator],
+                        inputProps: {
+                          keyboardType: 'email-address',
                         },
-                        password: {
-                          label: 'Password',
-                          validators: [lengthValidator],
-                          inputProps: {
-                            secureTextEntry: true,
-                          },
+                      },
+                      password: {
+                        label: 'Password',
+                        validators: [lengthValidator],
+                        inputProps: {
+                          secureTextEntry: true,
                         },
-                      }}/>
-                </View>
-        </ScrollView>
+                      },
+                  }}/>
+            </View>
+      </ScrollView>
     )
 }

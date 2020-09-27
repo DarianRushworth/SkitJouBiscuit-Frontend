@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { View, Text, Modal, TouchableHighlight, Image, ScrollView } from "react-native"
+import { View, Text, Modal, TouchableHighlight, Image } from "react-native"
 import { Avatar, Card, Badge } from "react-native-elements"
 import { useSelector, useDispatch } from "react-redux"
 
@@ -26,11 +26,9 @@ export default function OwnerScreen({ navigation }){
         } else if(data === "going"){
             setModalAttending(true)
             dispatch(profileStatus())
-            console.log("going", userStatus)
         } else if(data === "interested"){
             setModalMaybe(true)
             dispatch(profileStatus())
-            console.log("interested")
         } else if(data === "new" && user.isEventOwner){
             console.log("new")
         } else if(data === "remove" && user.isEventOwner){

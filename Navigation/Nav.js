@@ -1,6 +1,6 @@
 import * as React from "react"
 import { NavigationContainer } from "@react-navigation/native"
-import { createStackNavigator, HeaderTitle } from "@react-navigation/stack"
+import { createStackNavigator } from "@react-navigation/stack"
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { Ionicons } from "@expo/vector-icons"

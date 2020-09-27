@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react"
-import { Text, View, Image } from "react-native"
+import React, { useEffect } from "react"
+import { View, Image } from "react-native"
 import { Tile } from "react-native-elements"
 import { useDispatch, useSelector } from "react-redux"
 
@@ -10,7 +10,7 @@ import { styles } from "../StyledComponents/homeScreen"
 
 const imageUrl = { uri:"https://i.pinimg.com/originals/d2/02/95/d202954b8c118a92378e3e01dd5562d1.gif"}
 
-export default function HomeScreen({route, navigation}){
+export default function HomeScreen(){
     const dispatch = useDispatch()
     const parties = useSelector(selectParties)
     const custom = styles

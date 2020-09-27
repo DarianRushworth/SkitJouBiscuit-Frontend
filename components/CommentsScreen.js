@@ -19,36 +19,36 @@ export default function CommentsScreen({ navigation }){
     const sendIcon = <Icon name="paper-plane-o" size={20} 
                         onPress={() => {
                                 if(newComment !== ""){
-                                dispatch(sendNewComment(party.id, newComment))
-                                setNewComment("")
-                            }}}
-                        />
+                                    dispatch(sendNewComment(party.id, newComment))
+                                    setNewComment("")
+                                }}}
+                    />
 
     const display = () => {
         if(comments.length === 0){
         return (
-        <View>
-            <Badge
-                status="warning"
-                badgeStyle={{
-                    width: 150,
-                    height: 50,
-                }}
-                containerStyle={{
-                    marginTop: 150,
-                }}
-                value="Register to comment"
-                onPress={() => navigation.navigate("Register")}
-            />
-        </View>
-        )
-        } else {
-        return comments.map(comment => {
-            const { fullName } = comment.user
-            return (
-                <Card
-                    key={comment.id}
-                    containerStyle={custom.card}>
+            <View>
+                <Badge
+                    status="warning"
+                    badgeStyle={{
+                        width: 150,
+                        height: 50,
+                    }}
+                    containerStyle={{
+                        marginTop: 150,
+                    }}
+                    value="Register to comment"
+                    onPress={() => navigation.navigate("Register")}
+                />
+            </View>
+            )
+            } else {
+            return comments.map(comment => {
+                const { fullName } = comment.user
+                return (
+                    <Card
+                        key={comment.id}
+                        containerStyle={custom.card}>
                     <Card.Title
                         style={custom.text}>
                         {fullName}
@@ -60,8 +60,8 @@ export default function CommentsScreen({ navigation }){
                             {comment.input}
                         </Text>
                     </View>
-                </Card>
-            )
+                    </Card>
+                )
             })
         }
     }
