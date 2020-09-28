@@ -84,12 +84,7 @@ export function newPartyStatus(id, data){
 export function statusFetcher(id){
     return async(dispatch, getState) => {
         try{
-            const token = await AsyncStorage.getItem("token")
-            const status = await axios.get(`${API_URL}/parties/${id}/favored`,{
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            })
+            const status = await axios.get(`${API_URL}/parties/${id}/favored`)
             
             if(status.data.length >= 1){
                 dispatch(setStatus(status.data))
