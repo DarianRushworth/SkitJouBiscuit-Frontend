@@ -72,6 +72,8 @@ export function newPartyStatus(id, data){
                     Authorization: `Bearer ${token}`
                 }
             })
+
+            console.log(newStatus.data)
             
             dispatch(setNewStatus(newStatus.data))
 
