@@ -18,7 +18,6 @@ export default function OwnerScreen({ navigation }){
     const [modalMaybe, setModalMaybe] = useState(false)
     const user = useSelector(selectUser)
     const userStatus = useSelector(selectStatusData)
-    console.log(userStatus)
     const custom = styles
 
     function avatarFunction(data){
