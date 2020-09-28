@@ -28,6 +28,15 @@ I then came to the last phase of my planning, which was to use these **Frontend 
 
 ## Key Features:
 
-|Redirect  |Login  |Party Comments  |
-|----------|-------|----------------|
-|<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Redirect.gif" alt="Redirect" width=300/>|<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Login.gif" alt="Login" width=300/>|<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/PartiesComments.gif" alt="Party Comments" width=300/>|
+|Party List  |Party Info  |Comments(LoggedOut)  |
+|------------|------------|---------------------|
+|<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/PartyList.gif" alt="Party List" width=300/>|<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/PartyInfo.gif" alt="Party Info" width=300/>|<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/CommentInvisible.gif" alt="Comments Invisible" width=300/>|
+|Comments(LoggedIn)  |Login  |Sign-Up  |
+|--------------------|-------|---------|
+|<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/CommentsVisible.gif" alt="Comments Visible" width=300 />|<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Login.gif" alt="Login" width=300 />|<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/Sign-Up.gif" alt="Sign-Up" width=300 />|
+|New Comment  |New Status  |
+|-------------|------------|
+|<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/newComment.gif" alt="New Comment" width=300 />|<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/newStatus.gif" alt="New Status" width=300 />|
+|Update Info  |User Going  |User Interested  |
+|-------------|------------|-----------------|
+|<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/UpdateUser.gif" alt="Update User" width=300 />|<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/UserGoing.gif" alt="User Going" width=300 />|<img src="https://github.com/DarianRushworth/SkitJouBiscuit-Frontend/blob/development/UserInterested.gif" alt="User Interested" width=300 />|
